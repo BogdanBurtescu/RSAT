@@ -2,7 +2,11 @@ var myApp = angular.module('myApp', ['ngRoute']);
 
 myApp.config(function ($routeProvider) {
   $routeProvider
-    .when('/', {templateUrl: 'partials/home.html'})
+    .when('/', {
+      templateUrl: 'partials/login.html',
+      controller: 'loginController',
+      access: {restricted: false}
+    })
     .when('/login', {
       templateUrl: 'partials/login.html',
       controller: 'loginController',
@@ -25,6 +29,11 @@ myApp.config(function ($routeProvider) {
       template: '<h1>This is page two!</h1>',
       access: {restricted: false}
     })
+      .when('/main', {
+        templateUrl: 'partials/mainAppView.html',
+        controller: 'mainAppController',
+        access: {restricted: true}
+      })
     .otherwise({redirectTo: '/'});
 });
 
