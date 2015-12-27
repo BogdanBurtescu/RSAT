@@ -27,7 +27,7 @@
           <h3 class="panel-title">Please Sign In</h3>
         </div>
         <div class="panel-body">
-          <form role="form" ng-submit="register()">
+          <form role="form" data-toggle="validator" ng-submit="register()">
               <div class="form-group">
                 <label>First name</label>
                 <input type="text" class="form-control" name="firstName" ng-model="registerForm.firstName" required>
@@ -40,16 +40,22 @@
                   <label>E-mail</label>
                   <input type="email" class="form-control" name="username" ng-model="registerForm.username" required>
               </div>
+
               <div class="form-group">
                   <label>Password</label>
                   <input type="password" class="form-control" name="password" ng-model="registerForm.password" required>
+                  <div class="help-block with-errors"></div>
+
               </div>
+
               <div class="form-group">
                   <label>Password confirmation</label>
                   <input type="password" class="form-control" name="passwordConfirmation" ng-model="registerForm.passwordConfirmation" required>
+                  <div class="help-block with-errors"></div>
+
               </div>
               <!-- Change this to a button or input when using this as a form -->
-                <button type="submit" class = "btn btn-lg btn-success btn-block" ng-disabled="disabled"">Register</button>
+                <button type="submit" class = "btn btn-lg btn-success btn-block" ng-disabled="disabled">Register</button>
             </fieldset>
           </form>
         </div>
