@@ -5,4 +5,14 @@ angular.module('myApp').controller('mainAppController',
             $scope.mainAppName = "RSAT";
             $scope.authUser = AuthService.getAuthorizedUser();
 
+            $scope.logout = function () {
+
+                // call logout from service
+                AuthService.logout()
+                    .then(function () {
+                        $location.path('/login');
+                    });
+
+            };
+
         }]);
