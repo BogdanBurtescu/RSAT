@@ -3,16 +3,19 @@ angular.module('myApp').controller('loginController',
         function ($scope, $location, AuthService) {
 
 
+
             $scope.login = function () {
 
                 // initial values
                 $scope.error = false;
                 $scope.disabled = true;
 
+
                 // call login from service
                 AuthService.login($scope.loginForm.username, $scope.loginForm.password)
                     // handle success
                     .then(function () {
+                        toastr.success("You have logged in as " + $scope.loginForm.username);
                         $location.path('/main');
                         $scope.disabled = false;
                         $scope.loginForm = {};
