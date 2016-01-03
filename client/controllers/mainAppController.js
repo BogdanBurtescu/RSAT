@@ -1,9 +1,20 @@
 angular.module('myApp').controller('mainAppController',
-    ['$scope', '$location', 'AuthService',
-        function ($scope, $location, AuthService) {
+    ['$scope', '$location', 'AuthService', 'UserRetrievalService',
+        function ($scope, $location, AuthService, UserRetrievalService) {
 
             $scope.mainAppName = "RSAT";
             $scope.authUser = AuthService.getAuthorizedUser();
+
+
+
+            $scope.showEntireUser = function (){
+                console.log("mainAppCtrl: " + $scope.authUser.username);
+                UserRetrievalService.findRegisteredUser($scope.authUser.username);
+                console.log( UserRetrievalService.findRegisteredUser($scope.authUser.username));
+            }
+
+
+
 
             $scope.logout = function () {
 

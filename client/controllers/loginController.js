@@ -15,7 +15,12 @@ angular.module('myApp').controller('loginController',
                 AuthService.login($scope.loginForm.username, $scope.loginForm.password)
                     // handle success
                     .then(function () {
-                        toastr.success("You have logged in as " + $scope.loginForm.username);
+                        //toastr.success("You have logged in as " + $scope.loginForm.username);
+                        swal({
+                            title: "Login successful!",
+                            text: "You have logged in successful!",
+                            timer: 1500,
+                            showConfirmButton: false });
                         $location.path('/main');
                         $scope.disabled = false;
                         $scope.loginForm = {};
