@@ -21,20 +21,35 @@ angular.module('myApp').controller('registerController',
                         )
                         // handle success
                         .then(function () {
-                            toastr.success("You have succesfully registered!");
+                            swal({
+                                title: "Registration successful!",
+                                text: "You have registered successfully!",
+                                timer: 1500,
+                                type: "success",
+                                showConfirmButton: false });
                             $location.path('/login');
                             $scope.disabled = false;
                             $scope.registerForm = {};
                         })
                         // handle error
                         .catch(function () {
-                            toastr.error("Something went wrong!");
+                            swal({
+                                title: "Error!",
+                                text: "An error has occurred!",
+                                timer: 1500,
+                                type: "error",
+                                showConfirmButton: false });
                             $scope.error = true;
                             $scope.errorMessage = "Something went wrong!";
                             $scope.disabled = false;
                         });
                 }else{
-                    toastr.error("Passwords must match!");
+                    swal({
+                        title: "Password mismatch!",
+                        text: "The passwords you have provided do not match! Please review the form and submit it again.",
+                        timer: 1500,
+                        type: "error",
+                        showConfirmButton: false });
                     $scope.disabled = false;
 
                 }
