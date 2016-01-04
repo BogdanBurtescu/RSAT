@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6c7c9fe-a85b-4848-9815-52a35249ca39" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/controllers/loginController.js" afterPath="$PROJECT_DIR$/client/controllers/loginController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/controllers/mainAppController.js" afterPath="$PROJECT_DIR$/client/controllers/mainAppController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/controllers/registerController.js" afterPath="$PROJECT_DIR$/client/controllers/registerController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/index.html" afterPath="$PROJECT_DIR$/client/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/main.js" afterPath="$PROJECT_DIR$/client/main/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/partials/login.html" afterPath="$PROJECT_DIR$/client/partials/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/partials/mainAppView.html" afterPath="$PROJECT_DIR$/client/partials/mainAppView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/resources/vendor/sb-admin/css/sb-admin-2.css" afterPath="$PROJECT_DIR$/client/resources/vendor/sb-admin/css/sb-admin-2.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/resources/vendor/sb-admin/js/sb-admin-2.js" afterPath="$PROJECT_DIR$/client/resources/vendor/sb-admin/js/sb-admin-2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/services/UserRetrievalService.js" afterPath="$PROJECT_DIR$/client/services/UserRetrievalService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/services/services.js" afterPath="$PROJECT_DIR$/client/services/services.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/models/dbReader.js" afterPath="$PROJECT_DIR$/server/models/dbReader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/routes/api.js" afterPath="$PROJECT_DIR$/server/routes/api.js" />
     </list>
     <ignored path="mean-auth-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7373737">
-              <caret line="52" column="73" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
+            <state vertical-scroll-proportion="-1.0">
+              <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -106,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainAppView.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mainAppView.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/partials/mainAppView.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.235294">
-              <caret line="615" column="42" selection-start-line="615" selection-start-column="42" selection-end-line="615" selection-end-column="42" />
+            <state vertical-scroll-proportion="-0.055555556">
+              <caret line="630" column="29" selection-start-line="630" selection-start-column="29" selection-end-line="630" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -185,8 +172,8 @@
         <option value="$PROJECT_DIR$/client/controllers/registerController.js" />
         <option value="$PROJECT_DIR$/client/controllers/loginController.js" />
         <option value="$PROJECT_DIR$/client/partials/login.html" />
-        <option value="$PROJECT_DIR$/client/partials/mainAppView.html" />
         <option value="$PROJECT_DIR$/client/index.html" />
+        <option value="$PROJECT_DIR$/client/partials/mainAppView.html" />
       </list>
     </option>
   </component>
@@ -1021,46 +1008,46 @@
         <state vertical-scroll-proportion="-15.092592">
           <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
           <folding>
-            <marker date="1448007183000" expanded="true" signature="132157:132211" placeholder="..." />
-            <marker date="1448007183000" expanded="true" signature="132336:132688" placeholder="[...]" />
-            <marker date="1448007183000" expanded="true" signature="132380:132687" placeholder="{...}" />
-            <marker date="1448007183000" expanded="true" signature="132417:132517" placeholder="{&quot;templateUrl&quot;: 'home.html'...}" />
-            <marker date="1448007183000" expanded="true" signature="132566:132675" placeholder="{&quot;templateUrl&quot;: 'profile.html'...}" />
-            <marker date="1448007183000" expanded="true" signature="132703:133274" placeholder="[...]" />
-            <marker date="1448007183000" expanded="true" signature="132739:133273" placeholder="{...}" />
-            <marker date="1448007183000" expanded="true" signature="132772:133262" placeholder="[...]" />
-            <marker date="1448007183000" expanded="true" signature="133314:133356" placeholder="[...]" />
-            <marker date="1448007183000" expanded="true" signature="133326:133355" placeholder="{...}" />
-            <marker date="1448007183000" expanded="true" signature="133399:133653" placeholder="[...]" />
-            <marker date="1448007183000" expanded="true" signature="133465:133652" placeholder="{...}" />
-            <marker date="1448007183000" expanded="true" signature="133705:133964" placeholder="..." />
-            <marker date="1448007183000" expanded="true" signature="133799:133963" placeholder="..." />
-            <marker date="1448007183000" expanded="true" signature="134075:134116" placeholder="..." />
-            <marker date="1448007183000" expanded="true" signature="134177:134233" placeholder="{...}" />
-            <marker date="1448007183000" expanded="true" signature="134249:134330" placeholder="{...}" />
-            <marker date="1448007183000" expanded="true" signature="134353:134389" placeholder="{...}" />
-            <marker date="1448007183000" expanded="true" signature="134431:134544" placeholder="{...}" />
-            <marker date="1448007183000" expanded="true" signature="134607:134652" placeholder="{...}" />
-            <marker date="1448007183000" expanded="true" signature="134674:134719" placeholder="{...}" />
-            <marker date="1448007183000" expanded="true" signature="134773:134816" placeholder="{...}" />
-            <marker date="1448007183000" expanded="true" signature="134854:134900" placeholder="{...}" />
-            <marker date="1448007183000" expanded="true" signature="134929:134962" placeholder="{...}" />
+            <marker date="1451923236000" expanded="true" signature="132157:132211" placeholder="..." />
+            <marker date="1451923236000" expanded="true" signature="132336:132688" placeholder="[...]" />
+            <marker date="1451923236000" expanded="true" signature="132380:132687" placeholder="{...}" />
+            <marker date="1451923236000" expanded="true" signature="132417:132517" placeholder="{&quot;templateUrl&quot;: 'home.html'...}" />
+            <marker date="1451923236000" expanded="true" signature="132566:132675" placeholder="{&quot;templateUrl&quot;: 'profile.html'...}" />
+            <marker date="1451923236000" expanded="true" signature="132703:133274" placeholder="[...]" />
+            <marker date="1451923236000" expanded="true" signature="132739:133273" placeholder="{...}" />
+            <marker date="1451923236000" expanded="true" signature="132772:133262" placeholder="[...]" />
+            <marker date="1451923236000" expanded="true" signature="133314:133356" placeholder="[...]" />
+            <marker date="1451923236000" expanded="true" signature="133326:133355" placeholder="{...}" />
+            <marker date="1451923236000" expanded="true" signature="133399:133653" placeholder="[...]" />
+            <marker date="1451923236000" expanded="true" signature="133465:133652" placeholder="{...}" />
+            <marker date="1451923236000" expanded="true" signature="133705:133964" placeholder="..." />
+            <marker date="1451923236000" expanded="true" signature="133799:133963" placeholder="..." />
+            <marker date="1451923236000" expanded="true" signature="134075:134116" placeholder="..." />
+            <marker date="1451923236000" expanded="true" signature="134177:134233" placeholder="{...}" />
+            <marker date="1451923236000" expanded="true" signature="134249:134330" placeholder="{...}" />
+            <marker date="1451923236000" expanded="true" signature="134353:134389" placeholder="{...}" />
+            <marker date="1451923236000" expanded="true" signature="134431:134544" placeholder="{...}" />
+            <marker date="1451923236000" expanded="true" signature="134607:134652" placeholder="{...}" />
+            <marker date="1451923236000" expanded="true" signature="134674:134719" placeholder="{...}" />
+            <marker date="1451923236000" expanded="true" signature="134773:134816" placeholder="{...}" />
+            <marker date="1451923236000" expanded="true" signature="134854:134900" placeholder="{...}" />
+            <marker date="1451923236000" expanded="true" signature="134929:134962" placeholder="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/partials/mainAppView.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.235294">
-          <caret line="615" column="42" selection-start-line="615" selection-start-column="42" selection-end-line="615" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7373737">
-          <caret line="52" column="73" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
+        <state vertical-scroll-proportion="-1.0">
+          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/partials/mainAppView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.055555556">
+          <caret line="630" column="29" selection-start-line="630" selection-start-column="29" selection-end-line="630" selection-end-column="29" />
           <folding />
         </state>
       </provider>
