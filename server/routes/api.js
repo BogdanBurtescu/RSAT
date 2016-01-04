@@ -29,10 +29,13 @@ router.post('/register', function(req, res) {
 
 router.get('/findUser', function(req, res) {
 
-dbreader.searchForUser();
-
-
-    });
+    db.users.find({username: req.user.username}).forEach(function (err, doc) {
+        if (doc) {
+            console.log("USER FOUND");
+            res.json(doc);
+        }
+    })
+});
 
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {

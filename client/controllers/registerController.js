@@ -9,7 +9,7 @@ angular.module('myApp').controller('registerController',
                 $scope.disabled = true;
                 var todayDate = new Date();
                 console.log(todayDate.getFullYear());
-                $scope.dateOfCreation = new Date(Date.UTC(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDay()));
+                $scope.dateOfCreation = new Date();
 
                 // call register from service
                 if(checkPasswordMatch() === true){

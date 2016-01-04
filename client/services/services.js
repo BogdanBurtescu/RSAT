@@ -11,7 +11,8 @@ angular.module('myApp').factory('AuthService',
       getUserStatus: getUserStatus,
       login: login,
       logout: logout,
-      register: register
+      register: register,
+        getUserInformation: getUserInformation
     });
 
     function isLoggedIn() {
@@ -21,6 +22,32 @@ angular.module('myApp').factory('AuthService',
           return false;
         }
     }
+
+      function getUserInformation(){
+          // create a new instance of deferred
+          var deferred = $q.defer();
+
+          // send a post request to the server
+          $http.post('/user/loginInformation', {username: username, password: password})
+              // handle success
+              .success(function (data, status) {
+                  if(status === 200 && data.status){
+                      user = true;
+                      deferred.resolve();
+                  } else {
+                      user = false;
+                      deferred.reject();
+                  }
+              })
+              // handle error
+              .error(function (data) {
+                  user = false;
+                  deferred.reject();
+              });
+
+          // return promise object
+          return deferred.promise;
+      }
 
     function getUserStatus() {
       return user;

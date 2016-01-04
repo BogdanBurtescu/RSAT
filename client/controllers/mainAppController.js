@@ -1,20 +1,22 @@
 angular.module('myApp').controller('mainAppController',
     ['$scope', '$location', 'AuthService', 'UserRetrievalService',
         function ($scope, $location, AuthService, UserRetrievalService) {
-
+            $scope.loggedInUser = null;
             $scope.mainAppName = "RSAT";
             $scope.authUser = AuthService.getAuthorizedUser();
-
-
+            $scope.contentSelector = "default";
 
             $scope.showEntireUser = function (){
-                console.log("mainAppCtrl: " + $scope.authUser.username);
-                UserRetrievalService.findRegisteredUser($scope.authUser.username);
-                console.log( UserRetrievalService.findRegisteredUser($scope.authUser.username));
-            }
+                $scope.contentSelector = 'user';
+                UserRetrievalService.findRegisteredUser($scope.authUser).then(
+                    function(data) {
+                        $scope.loggedInUser = data;
+                        console.log($scope.loggedInUser);
+                    }
+                );
 
 
-
+            };
 
             $scope.logout = function () {
 
@@ -24,6 +26,10 @@ angular.module('myApp').controller('mainAppController',
                         $location.path('/login');
                     });
 
+            };
+
+            $scope.goToDashboard = function () {
+                $scope.contentSelector = "default";
             };
 
         }]);

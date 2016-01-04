@@ -7,8 +7,14 @@ var express = require('express'),
 
 
 
-exports.searchForUser = function (){
-    db.users.find(function(err, docs) {
-        console.log(docs);
+exports.searchForUser = function (element){
+    // iterate over all whose level is greater than 90.
+    db.users.find({username: element.username}).forEach(function (err, doc) {
+        if (doc) {
+            console.log("USER FOUND");
+            return doc;
+        }
+
+        // doc is a document in the collection
     })
 }

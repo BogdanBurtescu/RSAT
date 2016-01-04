@@ -2,8 +2,6 @@ angular.module('myApp').controller('loginController',
     ['$scope', '$location', 'AuthService',
         function ($scope, $location, AuthService) {
 
-
-
             $scope.login = function () {
 
                 // initial values
@@ -20,6 +18,7 @@ angular.module('myApp').controller('loginController',
                             title: "Login successful!",
                             text: "You have logged in successful!",
                             timer: 1500,
+                            type: "success",
                             showConfirmButton: false });
                         $location.path('/main');
                         $scope.disabled = false;
@@ -34,5 +33,9 @@ angular.module('myApp').controller('loginController',
                     });
 
             };
+
+            $scope.goToRegistration = function (){
+                $location.path('/register');
+            }
 
         }]);

@@ -34,6 +34,11 @@ myApp.config(function ($routeProvider) {
         controller: 'mainAppController',
         access: {restricted: true}
       })
+      .when('/userInformation', {
+        templateUrl: 'partials/userInformation.html',
+        controller: 'userInformationController',
+        access: {restricted: true}
+      })
     .otherwise({redirectTo: '/'});
 });
 
