@@ -8,7 +8,8 @@ var express = require('express'),
     hash = require('bcrypt-nodejs'),
     path = require('path'),
     passport = require('passport'),
-    localStrategy = require('passport-local' ).Strategy;
+    localStrategy = require('passport-local' ).Strategy,
+    socketio = require('socket.io');
 
 // mongoose
 mongoose.connect('mongodb://localhost/mean-auth');

@@ -5,13 +5,16 @@ var express = require('express'),
     mongojs = require('mongojs'),
     db = mongojs('mean-auth', ['users']),
     dbreader = require('../models/dbReader');
-//We need to work with "MongoClient" interface in order to connect to a mongodb server.
+
+
+
+var io = require('socket.io')(io);
+console.log(io);
 
 
 // Connection URL. This is where your mongodb server is running.
 var url = 'mongodb://localhost:27017/mean-auth';
-
-router.post('/register', function(req, res) {
+    router.post('/register', function(req, res) {
     User.register(new User({ username: req.body.username,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -31,7 +34,6 @@ router.get('/findUser', function(req, res) {
 
     db.users.find({username: req.user.username}).forEach(function (err, doc) {
         if (doc) {
-            console.log("USER FOUND");
             res.json(doc);
         }
     })
