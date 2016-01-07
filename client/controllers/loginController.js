@@ -17,7 +17,7 @@ angular.module('myApp').controller('loginController',
                         swal({
                             title: "Login successful!",
                             text: "You have logged in successful!",
-                            timer: 1500,
+                            timer: 2000,
                             type: "success",
                             showConfirmButton: false });
                         $location.path('/main');

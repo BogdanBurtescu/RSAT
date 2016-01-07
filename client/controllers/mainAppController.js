@@ -5,9 +5,6 @@ angular.module('myApp').controller('mainAppController',
             //execute function to get number of users on controller load
             getNumberOfUsers();
 
-
-
-
             $scope.loggedInUser = null;
             $scope.mainAppName = "RSAT";
             $scope.authUser = AuthService.getAuthorizedUser();
