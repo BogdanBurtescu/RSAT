@@ -3,40 +3,56 @@ var express = require('express'),
     passport = require('passport'),
     User = require('../models/user.js'),
     mongojs = require('mongojs'),
-    db = mongojs('mean-auth', ['users']),
-    dbreader = require('../models/dbReader');
-
+    db = mongojs('mean-auth', ['users']);
 
 
 // Connection URL. This is where your mongodb server is running.
 var url = 'mongodb://localhost:27017/mean-auth';
+
+
+
     router.post('/register', function(req, res) {
-    User.register(new User({ username: req.body.username,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        dateOfCreation: req.body.dateOfCreation}), req.body.password,  function(err, account) {
+        var socketio = req.app.get('socketio');
+        User.register(new User({ username: req.body.username,
+                                 firstName: req.body.firstName,
+                                 lastName: req.body.lastName,
+                                 dateOfCreation: req.body.dateOfCreation}), req.body.password,  function(err, account) {
         if (err) {
             return res.status(500).json({err: err});
         }
+            //execute query for number of users in db to send via socket.io
+            db.users.count(function(error, numberOfDocuments) {
+                // Do what you need the count for here.
+                socketio.sockets.emit('numberOfUsersSignal',
+                                      {numberOfUsers: numberOfDocuments}); // emit an event for all connected clients
+            });
+
+
         passport.authenticate('local')(req, res, function () {
-
-
             return res.status(200).json({status: 'Registration successful!'});
         });
     });
 });
 
 router.get('/findUser', function(req, res) {
-    var socketio = req.app.get('socketio');
-    socketio.sockets.emit('news', {article: 'article'}); // emit an event for all connected clients
-    console.log('event emitted');
-
     db.users.find({username: req.user.username}).forEach(function (err, doc) {
         if (doc) {
             res.json(doc);
         }
     })
 });
+
+router.get('/numberOfUsers', function(req, res) {
+    var socketio = req.app.get('socketio');
+
+    db.users.count(function(error, numberOfDocuments) {
+        // Do what you need the count for here.
+        socketio.sockets.emit('numberOfUsersSignal',
+                              {numberOfUsers: numberOfDocuments}); // emit an event for all connected clients
+        res.json({numberOfUsers: numberOfDocuments})
+    });
+});
+
 
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {

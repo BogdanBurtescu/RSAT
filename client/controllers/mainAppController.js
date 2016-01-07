@@ -1,19 +1,25 @@
 angular.module('myApp').controller('mainAppController',
-    ['$scope', '$location', 'AuthService', 'UserRetrievalService', 'socket',
-        function ($scope, $location, AuthService, UserRetrievalService, socket) {
-            //var socket = io.connect('http://localhost:3000');
-            //socket.on('news', function (data) {
-            //    console.log(data);
-            //});
+    ['$scope', '$location', 'AuthService', 'UserRetrievalService', 'SocketConnectionService', 'NoOfUsersRetrievalService',
+        function ($scope, $location, AuthService, UserRetrievalService, SocketConnectionService, NoOfUsersRetrievalService) {
 
-            console.log(socket);
-            socket.on('news', function(data) {
-                console.log(data);
-            })
+            //execute function to get number of users on controller load
+            getNumberOfUsers();
+
+
+
+
             $scope.loggedInUser = null;
             $scope.mainAppName = "RSAT";
             $scope.authUser = AuthService.getAuthorizedUser();
             $scope.contentSelector = "default";
+            $scope.currentNoOfUsersInDb = null;
+
+            //socket listener active on every update of the number of users in the db
+            SocketConnectionService.on('numberOfUsersSignal', function(data) {
+                console.log("Nr de useri transmis prin semnal: " + data.numberOfUsers);
+                $scope.currentNoOfUsersInDb = data.numberOfUsers;
+            });
+
 
             $scope.showEntireUser = function (){
                 $scope.contentSelector = 'user';
@@ -23,8 +29,14 @@ angular.module('myApp').controller('mainAppController',
                         console.log($scope.loggedInUser);
                     }
                 );
+            };
 
-
+            function getNumberOfUsers() {
+                NoOfUsersRetrievalService.getNumberOfUsers().then(
+                    function(data) {
+                        $scope.currentNoOfUsersInDb = data.numberOfUsers;
+                    }
+                );
             };
 
             $scope.logout = function () {
