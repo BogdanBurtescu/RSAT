@@ -6,7 +6,9 @@ angular.module('myApp').factory('AuthService',
             var user = null;
             var userToLogin = {
                 username: null,
-                password: null};
+                password: null,
+            firstName: null,
+            lastName: null};
 
 
 

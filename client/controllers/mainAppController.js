@@ -4,12 +4,14 @@ angular.module('myApp').controller('mainAppController',
 
             //execute function to get number of users on controller load
             getNumberOfUsers();
+            initializeUserCredentials();
 
-            $scope.loggedInUser = null;
             $scope.mainAppName = "RSAT";
             $scope.authUser = AuthService.getAuthorizedUser();
             $scope.contentSelector = "default";
             $scope.currentNoOfUsersInDb = null;
+            $scope.loggedInUser = null;
+
 
             //socket listener active on every update of the number of users in the db
             SocketConnectionService.on('numberOfUsersSignal', function(data) {
@@ -18,14 +20,19 @@ angular.module('myApp').controller('mainAppController',
             });
 
 
-            $scope.showEntireUser = function (){
-                $scope.contentSelector = 'user';
+
+
+            function initializeUserCredentials(){
                 UserRetrievalService.findRegisteredUser($scope.authUser).then(
                     function(data) {
                         $scope.loggedInUser = data;
                         console.log($scope.loggedInUser);
                     }
                 );
+            }
+
+            $scope.showEntireUser = function (){
+                $scope.contentSelector = 'user';
             };
 
             function getNumberOfUsers() {
@@ -37,7 +44,6 @@ angular.module('myApp').controller('mainAppController',
             };
 
             $scope.logout = function () {
-
                 // call logout from service
                 AuthService.logout()
                     .then(function () {
