@@ -8,10 +8,6 @@ var express = require('express'),
 
 
 
-var io = require('socket.io')(io);
-console.log(io);
-
-
 // Connection URL. This is where your mongodb server is running.
 var url = 'mongodb://localhost:27017/mean-auth';
     router.post('/register', function(req, res) {
@@ -31,6 +27,9 @@ var url = 'mongodb://localhost:27017/mean-auth';
 });
 
 router.get('/findUser', function(req, res) {
+    var socketio = req.app.get('socketio');
+    socketio.sockets.emit('news', {article: 'article'}); // emit an event for all connected clients
+    console.log('event emitted');
 
     db.users.find({username: req.user.username}).forEach(function (err, doc) {
         if (doc) {

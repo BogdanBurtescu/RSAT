@@ -8,8 +8,7 @@ var express = require('express'),
     hash = require('bcrypt-nodejs'),
     path = require('path'),
     passport = require('passport'),
-    localStrategy = require('passport-local' ).Strategy,
-    socketio = require('socket.io');
+    localStrategy = require('passport-local' ).Strategy;
 
 // mongoose
 mongoose.connect('mongodb://localhost/mean-auth');
@@ -19,6 +18,8 @@ var User = require('./models/user.js');
 
 // create instance of express
 var app = express();
+
+
 
 // require routes
 var routes = require('./routes/api.js');
@@ -64,5 +65,7 @@ app.get('/', function(req, res) {
 //    error: {}
 //  }));
 //});
+
+
 
 module.exports = app;
