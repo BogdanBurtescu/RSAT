@@ -70,4 +70,33 @@ angular.module('myApp').controller('mainAppController',
                 $scope.contentSelector = "weatherData";
             };
 
-        }]);
+        }])
+
+    .directive('adaptationDataView', function() {
+        return {
+
+            templateUrl: '../partials/views/adaptationData.view.html'
+        };
+    })
+
+    .directive('geographyDataView', function() {
+        return {
+
+            templateUrl: '../partials/views/geographyData.view.html'
+        };
+    })
+
+    .directive('weatherDataView', function() {
+        return {
+
+            templateUrl: '../partials/views/weatherData.view.html'
+        };
+    })
+
+    .directive('userInformationView', function() {
+        return {
+
+            templateUrl: '../partials/views/userInformation.view.html'
+        };
+    })
+
