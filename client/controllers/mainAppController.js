@@ -21,7 +21,7 @@ angular.module('myApp').controller('mainAppController',
 
 
 
-
+            //function that makes available the data to be input in the top right corner user box
             function initializeUserCredentials(){
                 UserRetrievalService.findRegisteredUser($scope.authUser).then(
                     function(data) {
@@ -31,10 +31,12 @@ angular.module('myApp').controller('mainAppController',
                 );
             }
 
+            //function to transfer the main div view to the user information one
             $scope.showEntireUser = function (){
                 $scope.contentSelector = 'user';
             };
 
+            //function to retrieve the number of users existent in the database when rendering the page
             function getNumberOfUsers() {
                 NoOfUsersRetrievalService.getNumberOfUsers().then(
                     function(data) {
@@ -54,6 +56,18 @@ angular.module('myApp').controller('mainAppController',
 
             $scope.goToDashboard = function () {
                 $scope.contentSelector = "default";
+            };
+
+            $scope.goToGeographyData = function () {
+                $scope.contentSelector = "geographyData";
+            };
+
+            $scope.goToAdaptationData = function () {
+                $scope.contentSelector = "adaptationData";
+            };
+
+            $scope.goToWeatherData = function () {
+                $scope.contentSelector = "weatherData";
             };
 
         }]);
