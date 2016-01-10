@@ -1,85 +1,9 @@
 <div style = "width: 100%; height: 100%">
     <div id="wrapper">
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <ul class="nav navbar-top-links navbar-left">
-                    <li class = "dropdown">
-                        <a href="" style = "font-size: 20px">RSAT</a>
-                    </li>
-                    <li class = "divider"></li>
-
-                    <li>
-                        <a href=""ng-click = "goToDashboard()" style = "font-size: 15px"><i class="fa fa-dashboard"style = "font-size: 15px" ></i> Dashboard</a>
-                    </li>
-                    <li class = "divider"></li>
-                    <li>
-                        <a href=""ng-click = "goToFlightDataView()" style = "font-size: 15px"><i class="ion ion-android-plane" style = "font-size: 15px"></i> Flight data</a>
-                    </li>
-                    <li class = "divider"></li>
-
-                    <li>
-                        <a href=""ng-click = "goToAirspaceView()" style = "font-size: 15px"><i class="ion ion-android-map "style = "font-size: 15px" ></i> Airspace</a>
-                    </li>
-                    <li class = "divider"></li>
-
-                    <li>
-                    <li>
-                        <a href=""ng-click = "goToSimulationView()" style = "font-size: 15px"><i class="ion ion-clipboard"style = "font-size: 15px" ></i> Simulation</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-header -->
+<div main-menu-component></div>
 
 
-            <ul class="nav navbar-top-links navbar-right">
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="">
-                        <i class="fa fa-user fa-fw" ></i>{{loggedInUser.firstName}} {{loggedInUser.lastName}}  <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href = "" ng-click = 'showEntireUser()'><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-
-                        <li class="divider"></li>
-                        <li><a href = "" ng-click='logout()'><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
-
-            <!--<div class="navbar-default sidebar" role="navigation" >-->
-                <!--<div class="sidebar-nav navbar-collapse">-->
-                    <!--<ul class="nav" id="side-menu">-->
-                        <!--<li>-->
-                            <!--<a href=""ng-click = "goToDashboard()" style = "font-size: 10px"><i class="fa fa-dashboard"style = "font-size: 20px" ></i> Dashboard</a>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                            <!--<a href=""ng-click = "goToDashboard()" style = "font-size: 10px"><i class="ion ion-android-plane" style = "font-size: 20px"></i> Flight data</a>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                            <!--<a href=""ng-click = "goToDashboard()" style = "font-size: 10px"><i class="ion ion-android-map "style = "font-size: 20px" ></i> Airspace</a>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                            <!--<a href=""ng-click = "goToDashboard()" style = "font-size: 10px"><i class="ion ion-clipboard"style = "font-size: 20px" ></i> Simulation</a>-->
-                        <!--</li>-->
-
-                    <!--</ul>-->
-                <!--</div>-->
-                <!--&lt;!&ndash; /.sidebar-collapse &ndash;&gt;-->
-            <!--</div>-->
-            <!-- /.navbar-static-side -->
-        </nav>
 <div ng-switch on="contentSelector">
         <div class="page-wrapper" ng-switch-when="default">
             <div main-view></div>

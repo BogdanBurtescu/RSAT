@@ -140,3 +140,10 @@ angular.module('myApp').controller('mainAppController',
         };
     })
 
+    .directive('mainMenuComponent', function() {
+        return {
+
+            templateUrl: '../partials/views/components/mainMenu.component.html'
+        };
+    })
+
