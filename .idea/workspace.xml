@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6c7c9fe-a85b-4848-9815-52a35249ca39" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/partials/views/airspace.view.html" afterPath="$PROJECT_DIR$/client/partials/views/airspace.view.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/partials/views/components/mainMenu.component.html" afterPath="$PROJECT_DIR$/client/partials/views/components/mainMenu.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/partials/views/flightData.view.html" afterPath="$PROJECT_DIR$/client/partials/views/flightData.view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/partials/views/simulation.view.html" afterPath="$PROJECT_DIR$/client/partials/views/simulation.view.html" />
     </list>
     <ignored path="mean-auth-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="adaptationData.view.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/partials/views/adaptationData.view.html">
+      <file leaf-file-name="simulation.view.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/partials/views/simulation.view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.111111">
-              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+            <state vertical-scroll-proportion="-1.7037038">
+              <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
               <folding>
                 <element signature="n#style#0;n#sup#0;n#h3#0;n#div#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
               </folding>
@@ -35,43 +39,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainMenu.component.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/partials/views/components/mainMenu.component.html">
+      <file leaf-file-name="airspace.view.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/partials/views/airspace.view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65340906">
-              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+            <state vertical-scroll-proportion="-1.7037038">
+              <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
               <folding>
-                <element signature="n#style#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#3;n#ul#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#5;n#ul#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#5;n#ul#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#8;n#ul#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#8;n#ul#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#0;n#ul#0;n#nav#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#sup#0;n#h3#0;n#div#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/resources/vendor/bootstrap/css/bootstrap.css">
+      <file leaf-file-name="flightData.view.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/partials/views/flightData.view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9074075">
-              <caret line="4212" column="37" selection-start-line="4212" selection-start-column="37" selection-end-line="4212" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap-theme.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/resources/vendor/bootstrap/css/bootstrap-theme.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.888889">
-              <caret line="392" column="19" selection-start-line="392" selection-start-column="19" selection-end-line="392" selection-end-column="19" />
-              <folding />
+            <state vertical-scroll-proportion="0.0629275">
+              <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+              <folding>
+                <element signature="n#style#0;n#sup#0;n#h3#0;n#div#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,9 +121,6 @@
         <option value="$PROJECT_DIR$/client/partials/userData.view.html" />
         <option value="$PROJECT_DIR$/client/partials/views/userData.view.html" />
         <option value="$PROJECT_DIR$/client/partials/views/airspaceData.view.html" />
-        <option value="$PROJECT_DIR$/client/partials/views/airspace.view.html" />
-        <option value="$PROJECT_DIR$/client/partials/views/flightData.view.html" />
-        <option value="$PROJECT_DIR$/client/partials/views/simulation.view.html" />
         <option value="$PROJECT_DIR$/client/partials/views/mainMenu.component.html" />
         <option value="$PROJECT_DIR$/client/controllers/mainAppController.js" />
         <option value="$PROJECT_DIR$/client/main/main.js" />
@@ -148,6 +132,9 @@
         <option value="$PROJECT_DIR$/client/partials/views/adaptationData.view.html" />
         <option value="$PROJECT_DIR$/client/resources/vendor/bootstrap/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/client/partials/views/components/mainMenu.component.html" />
+        <option value="$PROJECT_DIR$/client/partials/views/simulation.view.html" />
+        <option value="$PROJECT_DIR$/client/partials/views/airspace.view.html" />
+        <option value="$PROJECT_DIR$/client/partials/views/flightData.view.html" />
       </list>
     </option>
   </component>
@@ -515,7 +502,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22332016" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22332016" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29150197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -812,40 +799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/partials/views/airspace.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="17" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/partials/views/simulation.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/partials/mainAppView.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2777778">
-          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/partials/views/flightData.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="20" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/controllers/mainAppController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3944591">
@@ -858,24 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17546174">
           <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/partials/views/main.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.234375">
-          <caret line="15" column="44" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#sup#0;n#h3#0;n#div#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/partials/views/weatherData.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28317374">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -900,16 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/partials/views/adaptationData.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.111111">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#sup#0;n#h3#0;n#div#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/resources/vendor/bootstrap/css/bootstrap-theme.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.888889">
@@ -928,8 +853,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/partials/views/components/mainMenu.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65340906">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.13068181">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
@@ -941,6 +866,74 @@
             <element signature="n#style#0;n#a#0;n#li#8;n#ul#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#0;n#a#0;n#li#8;n#ul#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#0;n#a#0;n#li#0;n#ul#0;n#nav#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/partials/views/main.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.009576">
+          <caret line="293" column="72" selection-start-line="0" selection-start-column="0" selection-end-line="313" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#sup#0;n#h3#0;n#div#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/partials/mainAppView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0629275">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/partials/views/weatherData.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/partials/views/adaptationData.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15731874">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#sup#0;n#h3#0;n#div#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/partials/views/simulation.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.7037038">
+          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#sup#0;n#h3#0;n#div#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/partials/views/airspace.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.7037038">
+          <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#sup#0;n#h3#0;n#div#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/partials/views/flightData.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0629275">
+          <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#sup#0;n#h3#0;n#div#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
