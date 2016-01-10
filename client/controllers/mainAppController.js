@@ -70,6 +70,18 @@ angular.module('myApp').controller('mainAppController',
                 $scope.contentSelector = "weatherData";
             };
 
+            $scope.goToAirspaceView = function () {
+                $scope.contentSelector = "airspace";
+            };
+
+            $scope.goToFlightDataView = function () {
+                $scope.contentSelector = "flightData";
+            };
+
+            $scope.goToSimulationView = function () {
+                $scope.contentSelector = "simulation";
+            };
+
         }])
 
     .directive('adaptationDataView', function() {
@@ -97,6 +109,34 @@ angular.module('myApp').controller('mainAppController',
         return {
 
             templateUrl: '../partials/views/userInformation.view.html'
+        };
+    })
+
+    .directive('airspaceView', function() {
+        return {
+
+            templateUrl: '../partials/views/airspace.view.html'
+        };
+    })
+
+    .directive('flightDataView', function() {
+        return {
+
+            templateUrl: '../partials/views/flightData.view.html'
+        };
+    })
+
+    .directive('simulationView', function() {
+        return {
+
+            templateUrl: '../partials/views/simulation.view.html'
+        };
+    })
+
+    .directive('mainView', function() {
+        return {
+
+            templateUrl: '../partials/views/main.view.html'
         };
     })
 
