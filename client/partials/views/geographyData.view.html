@@ -6,7 +6,7 @@
     <!-- /.col-lg-12 -->
 </div>
 <div class="row">
-    <div class="col-lg-3 col-xs-6">
+    <div class="col-lg-1 col-xs-3">
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
@@ -19,7 +19,7 @@
             <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
+    <div class="col-lg-1 col-xs-3">
         <!-- small box -->
         <div class="small-box bg-green">
             <div class="inner">
@@ -32,7 +32,7 @@
             <a ng-click = "goToAdaptationData()" href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
+    <div class="col-lg-1 col-xs-3">
         <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
@@ -45,7 +45,7 @@
             <a ng-click = "goToGeographyData()"href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
+    <div class="col-lg-1 col-xs-3">
         <!-- small box -->
         <div class="small-box bg-red">
             <div class="inner">
@@ -61,14 +61,59 @@
 </div><!-- /.row -->
 
 <h1>{{cacat}}</h1>
-    <table ng-table="tableParams" class="table">
-        <tr ng-repeat="user in users">
-            <td data-title="'Name'" sortable="name">
-                {{user.name}}
+    <form>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="ion ion-ios-search-strong"></i></div>
+                <input type="text" class="form-control" placeholder="Search for parameter..." ng-model="searchGeographicalEntity">
+            </div>
+        </div>
+    </form>
+    <table class="table table-bordered table-striped table-hover table-responsive">
+
+        <thead>
+        <tr>
+            <td>
+                <a href="" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                    Name1
+                    <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+                </a>
             </td>
-            <td data-title="'Age'" sortable="age">
-                {{user.age}}
+            <td>
+                <a href="" ng-click="sortType = 'fish'; sortReverse = !sortReverse">
+                    Name2
+                    <span ng-show="sortType == 'fish' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'fish' && sortReverse" class="fa fa-caret-up"></span>
+                </a>
+            </td>
+            <td>
+                <a href="" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+                    Name3
+                    <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+                </a>
+            </td>
+            <td>
+                <a href="" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+                    Name4
+                    <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+                </a>
             </td>
         </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="entity in geographicalEntities | orderBy:sortType:sortReverse | filter:searchGeographicalEntity">
+            <td>{{ entity.item1 }}</td>
+            <td>{{ entity.item2 }}</td>
+            <td>{{ entity.item3 }}</td>
+            <td>{{ entity.item4 }}</td>
+
+        </tr>
+        </tbody>
+
+
     </table>
 </div>
