@@ -1,4 +1,4 @@
-
+<div ng-controller = "geographyDataController">
 <div class="row">
     <div class="col-lg-12">
         <h3 class="page-header">Geography Data</h3>
@@ -60,4 +60,15 @@
     </div><!-- ./col -->
 </div><!-- /.row -->
 
-<h1>WeatherData</h1>
+<h1>{{cacat}}</h1>
+    <table ng-table="tableParams" class="table">
+        <tr ng-repeat="user in users">
+            <td data-title="'Name'" sortable="name">
+                {{user.name}}
+            </td>
+            <td data-title="'Age'" sortable="age">
+                {{user.age}}
+            </td>
+        </tr>
+    </table>
+</div>
