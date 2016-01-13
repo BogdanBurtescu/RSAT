@@ -1,0 +1,91 @@
+<div style="width: 100%">
+    <div class="panel panel-default">
+        <div class="panel-heading full-opacity-hover" data-toggle="collapse" data-target="#collapseFour">
+            <h4 class="panel-title">
+                Upload Geographical Data
+            </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse">
+            <div class="panel-body bg-gray-light">
+                 <span class="btn btn-success btn-file">
+                     <i class="ion ion-ios-plus-outline" style = "font-size: 20px"></i><input type="file" nv-file-select="" uploader="uploader" multiple>
+</span>
+
+            <div class="row" style = "padding-left: 10px; padding-right: 10px">
+
+                <!--<h3>Upload queue</h3>-->
+                <!--<p>Queue length: {{ uploader.queue.length }}</p>-->
+
+                <table class="table table-bordered with-border table-striped table-hover table-responsive">
+                    <thead>
+                    <tr>
+                        <th width="50%">Uploaded file </th>
+                        <th ng-show="uploader.isHTML5">Size</th>
+                        <th ng-show="uploader.isHTML5">Progress</th>
+                        <th>Status</th>
+                        <th width = 10%>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in uploader.queue">
+                        <td><strong>{{ item.file.name }}</strong></td>
+                        <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                        <td ng-show="uploader.isHTML5">
+                            <div class="progress" style="margin-bottom: 0;">
+                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <span style = "font-size: 20px" ng-show="item.isSuccess"><i class="ion ion-android-done"></i></span>
+                            <span ng-show="item.isCancel"><i class="ion ion-android-cancel"></i></span>
+                            <span ng-show="item.isError"><i class="ion ion-android-delete"></i></span>
+                        </td>
+                        <td nowrap>
+                            <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                <span class="ion ion-upload"></span> Upload
+                            </button>
+                            <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                <span class="ion ion-android-cancel"></span> Cancel
+                            </button>
+                            <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                <span class="ion ion-android-delete"></span> Remove
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div>
+                    <div>
+                        Queue progress:
+                        <div class="progress" style="">
+                            <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success " ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                        <span class="ion ion-upload"></span> Upload all
+                    </button>
+                    <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+                        <span class="ion ion-android-cancel"></span> Cancel all
+                    </button>
+                    <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+                        <span class="ion ion-android-delete"></span> Remove all
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--<form action="/tasks" method="post" enctype="multipart/form-data">-->
+    <!--<input type="file" name ="task">-->
+    <!--<input type="submit" value="Upload selected file to server">-->
+<!--</form>-->

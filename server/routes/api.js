@@ -3,15 +3,24 @@ var express = require('express'),
     passport = require('passport'),
     User = require('../models/user.js'),
     mongojs = require('mongojs'),
-    db = mongojs('mean-auth', ['users']);
+    db = mongojs('mean-auth', ['users']),
+    multer = require('multer');
+
 
 
 // Connection URL. This is where your mongodb server is running.
 var url = 'mongodb://localhost:27017/mean-auth';
 
+/** API path that will upload the files */
+// Example endpoint
 
 
-    router.post('/register', function(req, res) {
+//router.get('/tasks', function(req, res) {
+//    res.render('form');
+//});
+
+
+router.post('/register', function(req, res) {
         var socketio = req.app.get('socketio');
         User.register(new User({ username: req.body.username,
                                  firstName: req.body.firstName,

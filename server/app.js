@@ -8,7 +8,8 @@ var express = require('express'),
     hash = require('bcrypt-nodejs'),
     path = require('path'),
     passport = require('passport'),
-    localStrategy = require('passport-local' ).Strategy;
+    localStrategy = require('passport-local' ).Strategy,
+    multer = require('multer');
 
 // mongoose
 mongoose.connect('mongodb://localhost/mean-auth');
@@ -46,6 +47,10 @@ passport.deserializeUser(User.deserializeUser());
 
 // routes
 app.use('/user/', routes);
+
+
+
+
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../client', 'index.html'));
