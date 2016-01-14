@@ -5,16 +5,11 @@ var app = require('../app'),
     fs = require('fs'),
     path = require('path'),
     shpFileParser = require('./components/ShpFileParser.js'),
-    csvFileParser = require('./components/CsvFileParser.js');
+    csvFileParser = require('./components/CsvFileParser.js'),
+    xmlFileParser = require('./components/XmlFileParser.js');
 
 exports.uploaderService = function(routePath)
 {
-
-//fileStoragePath = uploads/
-    //routePath = /fileUploadService
-
-
-
 //define storage and upload instances
     var storage = multer.diskStorage({
         destination: function (req, file, cb) {
@@ -26,7 +21,6 @@ exports.uploaderService = function(routePath)
     });
     var upload = multer({ storage: storage });
 
-
     app.post('/fileUploadService', upload.single('file'), function(req,res){
         console.log("Finished uploading: " + req.file.originalname);
         console.log("File path: " + req.file.path);
@@ -36,6 +30,15 @@ exports.uploaderService = function(routePath)
         }
         if(path.extname(req.file.originalname) === ".csv"){
             csvFileParser.parseCsv(req.file.path);
+        }
+        if(path.extname(req.file.originalname) === ".xml"){
+            //xmlFileParser.parseXml(req.file.path);
+            //TODO: implement xml parser
+        }
+
+        if(path.extname(req.file.originalname) === ".json"){
+            //xmlFileParser.parseXml(req.file.path);
+            //TODO: implement the data distribution straight to Mongo
         }
         res.status(204).end();
     });

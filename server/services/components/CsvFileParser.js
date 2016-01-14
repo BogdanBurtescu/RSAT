@@ -1,10 +1,4 @@
-var app = require('../../app'),
-    multer = require('multer'),
-    shapefileStream = require('shapefile-stream'),
-    through = require('through2'),
-    fs = require('fs'),
-    path = require('path'),
-    csvjson = require('csvjson');
+var csvjson = require('csvjson');
 
 
 exports.parseCsv = function(filePath){
