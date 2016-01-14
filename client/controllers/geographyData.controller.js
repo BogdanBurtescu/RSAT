@@ -2,8 +2,16 @@ angular.module('myApp').controller('geographyDataController',
     ['$scope', '$timeout', '$location', 'FileUploader', '$http',
         function ($scope, $timeout, $location, FileUploader, $http) {
             var uploader = $scope.uploader = new FileUploader({
-                url: '/uploads'
+                url: '/fileUploadService'
             });
+            //
+            //$scope.getShpData = function() {
+            //    //var promise = $http.get('/cacamaca').then(function(response){
+            //    //    console.log(response.data);
+            //    //    return response.data;
+            //    //});
+            //    //return promise;
+            //}
 
             // FILTERS
 

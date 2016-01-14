@@ -11,6 +11,7 @@ var express = require('express'),
     localStrategy = require('passport-local' ).Strategy,
     multer = require('multer');
 
+
 // mongoose
 mongoose.connect('mongodb://localhost/mean-auth');
 
