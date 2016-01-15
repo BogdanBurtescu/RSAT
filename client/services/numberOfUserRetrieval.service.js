@@ -6,9 +6,7 @@ angular.module('myApp').factory('NoOfUsersRetrievalService',
             // return available functions for use in controllers
             return ({
                 getNumberOfUsers: getNumberOfUsers
-
             });
-
 
             function getNumberOfUsers () {
                 var promise = $http.get('/user/numberOfUsers').then(function(response){

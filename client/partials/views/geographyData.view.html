@@ -76,41 +76,48 @@
         <tr>
             <td>
                 <a href="" ng-click="sortType = 'name'; sortReverse = !sortReverse">
-                    Name1
+                    Type
                     <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
                     <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
                 </a>
             </td>
             <td>
-                <a href="" ng-click="sortType = 'fish'; sortReverse = !sortReverse">
-                    Name2
-                    <span ng-show="sortType == 'fish' && !sortReverse" class="fa fa-caret-down"></span>
-                    <span ng-show="sortType == 'fish' && sortReverse" class="fa fa-caret-up"></span>
+                <a href="" ng-click="sortType = 'entityName'; sortReverse = !sortReverse">
+                    Entity name
+                    <span ng-show="sortType == 'entityName' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'entityName' && sortReverse" class="fa fa-caret-up"></span>
                 </a>
             </td>
             <td>
-                <a href="" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
-                    Name3
-                    <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
-                    <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+                <a href="" ng-click="sortType = 'continent'; sortReverse = !sortReverse">
+                    Continent
+                    <span ng-show="sortType == 'continent' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'continent' && sortReverse" class="fa fa-caret-up"></span>
                 </a>
             </td>
             <td>
-                <a href="" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
-                    Name4
-                    <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
-                    <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+                <a href="" ng-click="sortType = 'subregion'; sortReverse = !sortReverse">
+                    Subregion
+                    <span ng-show="sortType == 'subregion' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'subregion' && sortReverse" class="fa fa-caret-up"></span>
+                </a>
+            </td>
+            <td>
+                <a href="" ng-click="sortType = 'geometry'; sortReverse = !sortReverse">
+                    Geometry
+                    <span ng-show="sortType == 'geometry' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'geometry' && sortReverse" class="fa fa-caret-up"></span>
                 </a>
             </td>
         </tr>
         </thead>
-
         <tbody>
         <tr ng-repeat="entity in geographicalEntities | orderBy:sortType:sortReverse | filter:searchGeographicalEntity">
-            <td>{{ entity.item1 }}</td>
-            <td>{{ entity.item2 }}</td>
-            <td>{{ entity.item3 }}</td>
-            <td>{{ entity.item4 }}</td>
+            <td>{{ entity.type }}</td>
+            <td>{{ entity.entityName }}</td>
+            <td>{{ entity.continent }}</td>
+            <td>{{ entity.subregion }}</td>
+            <td>{{ entity.geometry }}</td>
 
         </tr>
         </tbody>

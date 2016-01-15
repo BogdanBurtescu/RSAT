@@ -1,17 +1,11 @@
 angular.module('myApp').controller('geographyDataController',
-    ['$scope', '$timeout', '$location', 'FileUploader', '$http',
-        function ($scope, $timeout, $location, FileUploader, $http) {
+    ['$scope', '$timeout', '$location', 'FileUploader', '$http', 'SocketConnectionService', 'CountryRetrievalService',
+        function ($scope, $timeout, $location, FileUploader, $http, SocketConnectionService, CountryRetrievalService) {
             var uploader = $scope.uploader = new FileUploader({
                 url: '/fileUploadService'
             });
             //
-            //$scope.getShpData = function() {
-            //    //var promise = $http.get('/cacamaca').then(function(response){
-            //    //    console.log(response.data);
-            //    //    return response.data;
-            //    //});
-            //    //return promise;
-            //}
+            getCountriesInformation();
 
             // FILTERS
 
@@ -66,37 +60,19 @@ angular.module('myApp').controller('geographyDataController',
             $scope.sortReverse  = false;  // set the default sort order
             $scope.searchGeographicalEntity   = '';     // set the default search/filter term
 
-            // create the list of sushi rolls
-            $scope.geographicalEntities = [
-                { item1: 'Cali Roll', item2: 'Crgrab', item3: 2, item4: 2 },
-                { item1: 'adasdadf', item2: 'gfdg', item3: 5, item4: 2  },
-                { item1: 'Cali dfsfgs', item2: 't45y4', item3: 99, item4: 2  },
-                { item1: 'Cafgdgl', item2: 'fgdg4', item3: 45, item4: 2  },
-                { item1: 'Catyjhl', item2: 'rg34g', item3: 546 , item4: 2 },
-                { item1: 'Cali Roll', item2: 'Crgrab', item3: 2, item4: 2 },
-                { item1: 'adasdadf', item2: 'gfdg', item3: 5, item4: 2  },
-                { item1: 'Cali dfsfgs', item2: 't45y4', item3: 99, item4: 2  },
-                { item1: 'Cafgdgl', item2: 'fgdg4', item3: 45, item4: 2  },
-                { item1: 'Catyjhl', item2: 'rg34g', item3: 546 , item4: 2 },
-                { item1: 'Cali Roll', item2: 'Crgrab', item3: 2, item4: 2 },
-                { item1: 'adasdadf', item2: 'gfdg', item3: 5, item4: 2  },
-                { item1: 'Cali dfsfgs', item2: 't45y4', item3: 99, item4: 2  },
-                { item1: 'Cafgdgl', item2: 'fgdg4', item3: 45, item4: 2  },
-                { item1: 'Catyjhl', item2: 'rg34g', item3: 546 , item4: 2 },
-                { item1: 'Cali Roll', item2: 'Crgrab', item3: 2, item4: 2 },
-                { item1: 'adasdadf', item2: 'gfdg', item3: 5, item4: 2  },
-                { item1: 'Cali dfsfgs', item2: 't45y4', item3: 99, item4: 2  },
-                { item1: 'Cafgdgl', item2: 'fgdg4', item3: 45, item4: 2  },
-                { item1: 'Catyjhl', item2: 'rg34g', item3: 546 , item4: 2 },
-                { item1: 'Cali Roll', item2: 'Crgrab', item3: 2, item4: 2 },
-                { item1: 'adasdadf', item2: 'gfdg', item3: 5, item4: 2  },
-                { item1: 'Cali dfsfgs', item2: 't45y4', item3: 99, item4: 2  },
-                { item1: 'Cafgdgl', item2: 'fgdg4', item3: 45, item4: 2  },
-                { item1: 'Catyjhl', item2: 'rg34g', item3: 546 , item4: 2 }
+            $scope.geographicalEntities = [];
+            //socket listener active on every update of the number of users in the db
+            SocketConnectionService.on('countriesSignal', function(data) {
+                $scope.geographicalEntities.push(data);
+            });
 
-            ];
-
-
+            function getCountriesInformation() {
+               CountryRetrievalService.getCountries().then(
+                    function(data) {
+                        $scope.geographicalEntities = data;
+                    }
+                );
+            }
 
         }])
 

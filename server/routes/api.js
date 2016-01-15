@@ -85,4 +85,28 @@ router.get('/logout', function(req, res) {
   res.status(200).json({status: 'Bye!'});
 });
 
+router.get('/countries', function(req, res) {
+    var listOfCountries = [];
+    db.countries.find({}, function(err, countries){
+        countries.forEach(function(country){
+            var countryTableFormat = {
+                type: null,
+                entityName: null,
+                continent: null,
+                subregion: null,
+                geometry: null
+            };
+            countryTableFormat.type = country.type;
+            countryTableFormat.entityName = country.properties.ADMIN;
+            countryTableFormat.continent = country.properties.CONTINENT;
+            countryTableFormat.geometry = country.geometry.type;
+            countryTableFormat.subregion = country.properties.SUBREGION;
+            listOfCountries.push(countryTableFormat);
+        });
+        res.json(listOfCountries);
+
+    })
+
+});
+
 module.exports = router;
