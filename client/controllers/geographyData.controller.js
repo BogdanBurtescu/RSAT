@@ -1,13 +1,9 @@
 angular.module('myApp').controller('geographyDataController',
-    ['$scope', '$timeout', '$location', 'FileUploader', '$http', 'SocketConnectionService', 'CountryRetrievalService',
-        function ($scope, $timeout, $location, FileUploader, $http, SocketConnectionService, CountryRetrievalService) {
+    ['$scope', '$timeout', '$location', 'FileUploader', '$http', 'SocketConnectionService',
+        function ($scope, $timeout, $location, FileUploader, $http, SocketConnectionService) {
             var uploader = $scope.uploader = new FileUploader({
                 url: '/fileUploadService'
             });
-            //
-            getCountriesInformation();
-
-            // FILTERS
 
             uploader.filters.push({
                 name: 'customFilter',
@@ -60,19 +56,10 @@ angular.module('myApp').controller('geographyDataController',
             $scope.sortReverse  = false;  // set the default sort order
             $scope.searchGeographicalEntity   = '';     // set the default search/filter term
 
-            $scope.geographicalEntities = [];
             //socket listener active on every update of the number of users in the db
             SocketConnectionService.on('countriesSignal', function(data) {
                 $scope.geographicalEntities.push(data);
             });
-
-            function getCountriesInformation() {
-               CountryRetrievalService.getCountries().then(
-                    function(data) {
-                        $scope.geographicalEntities = data;
-                    }
-                );
-            }
 
         }])
 

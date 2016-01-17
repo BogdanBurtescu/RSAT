@@ -43,6 +43,14 @@ router.post('/register', function(req, res) {
     });
 });
 
+
+router.get('/numberOfGeographicFeatures', function(req, res) {
+        db.countries.count(function(error, numberOfDocuments) {
+            res.json({numberOfGeographicFeatures: numberOfDocuments})
+        });
+
+    });
+
 router.get('/findUser', function(req, res) {
     db.users.find({username: req.user.username}).forEach(function (err, doc) {
         if (doc) {

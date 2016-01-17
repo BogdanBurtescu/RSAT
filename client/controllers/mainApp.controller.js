@@ -1,15 +1,18 @@
 angular.module('myApp').controller('mainAppController',
-    ['$scope', '$location', 'AuthService', 'UserRetrievalService', 'SocketConnectionService', 'NoOfUsersRetrievalService',
-        function ($scope, $location, AuthService, UserRetrievalService, SocketConnectionService, NoOfUsersRetrievalService) {
+    ['$scope', '$location', 'AuthService', 'UserRetrievalService', 'SocketConnectionService', 'NoOfUsersRetrievalService', 'CountryRetrievalService', 'NoOfGeographicFeaturesService',
+        function ($scope, $location, AuthService, UserRetrievalService, SocketConnectionService, NoOfUsersRetrievalService, CountryRetrievalService, NoOfGeographicFeaturesService) {
 
             //execute function to get number of users on controller load
             getNumberOfUsers();
             initializeUserCredentials();
+            getCountriesInformation();
+            getNumberOfGeographicFeatures();
 
             $scope.mainAppName = "RSAT";
             $scope.authUser = AuthService.getAuthorizedUser();
             $scope.contentSelector = "default";
             $scope.currentNoOfUsersInDb = null;
+            $scope.currentNoOfGeographicFeaturesInDb = null;
             $scope.loggedInUser = null;
 
 
@@ -41,6 +44,15 @@ angular.module('myApp').controller('mainAppController',
                 NoOfUsersRetrievalService.getNumberOfUsers().then(
                     function(data) {
                         $scope.currentNoOfUsersInDb = data.numberOfUsers;
+                    }
+                );
+            };
+
+            function getNumberOfGeographicFeatures() {
+                NoOfGeographicFeaturesService.getNumberOfGeographicFeatures().then(
+                    function(data) {
+                        console.log(data);
+                        $scope.currentNoOfGeographicFeaturesInDb = data.numberOfGeographicFeatures;
                     }
                 );
             };
@@ -81,6 +93,15 @@ angular.module('myApp').controller('mainAppController',
             $scope.goToSimulationView = function () {
                 $scope.contentSelector = "simulation";
             };
+
+            function getCountriesInformation() {
+                CountryRetrievalService.getCountries().then(
+                    function(data) {
+                        $scope.geographicalEntities = data;
+                        console.log("Finished uploading the country information data");
+                    }
+                );
+            }
 
         }])
 
