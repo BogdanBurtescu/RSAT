@@ -14,12 +14,10 @@ mainAppFunction.$inject = [
     'NoOfGeographicFeaturesService'
 ];
 
-
 function mainAppFunction($scope, $location, AuthService,
                          UserRetrievalService, SocketConnectionService,
                          NoOfUsersRetrievalService, CountryRetrievalService,
                          NoOfGeographicFeaturesService) {
-
     //execute function to get number of users on controller load
     getNumberOfUsers();
     initializeUserCredentials();
@@ -64,7 +62,7 @@ function mainAppFunction($scope, $location, AuthService,
                 $scope.currentNoOfUsersInDb = data.numberOfUsers;
             }
         );
-    };
+    }
 
     function getNumberOfGeographicFeatures() {
         NoOfGeographicFeaturesService.getNumberOfGeographicFeatures().then(
@@ -73,7 +71,7 @@ function mainAppFunction($scope, $location, AuthService,
                 $scope.currentNoOfGeographicFeaturesInDb = data.numberOfGeographicFeatures;
             }
         );
-    };
+    }
 
     $scope.logout = function() {
         // call logout from service

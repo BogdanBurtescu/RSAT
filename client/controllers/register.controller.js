@@ -9,7 +9,6 @@ registerMainFunction.$inject = [
     'AuthService'
 ];
 
-
 function registerMainFunction($scope, $location, AuthService) {
     $scope.register = function() {
         // initial values
@@ -62,10 +61,7 @@ function registerMainFunction($scope, $location, AuthService) {
                 showConfirmButton: false
             });
             $scope.disabled = false;
-
         }
-
-
     };
 
     function checkPasswordMatch() {

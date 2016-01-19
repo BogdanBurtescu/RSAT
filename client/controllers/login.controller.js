@@ -18,7 +18,6 @@ function loginControllerMainFunction($scope, $location, AuthService) {
         $scope.error = false;
         $scope.disabled = true;
 
-
         // call login from service
         AuthService.login($scope.loginForm.username, $scope.loginForm.password)
             // handle success
@@ -42,7 +41,6 @@ function loginControllerMainFunction($scope, $location, AuthService) {
                 $scope.disabled = false;
                 $scope.loginForm = {};
             });
-
     };
 
     $scope.goToRegistration = function() {

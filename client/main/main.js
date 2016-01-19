@@ -1,6 +1,6 @@
-var myApp = angular.module('myApp', ['ngRoute', 'angularFileUpload']);
+var applicationContext = angular.module('myApp', ['ngRoute', 'angularFileUpload']);
 
-myApp.config(function($routeProvider) {
+applicationContext.config(function($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'partials/login.html',
@@ -56,7 +56,7 @@ myApp.config(function($routeProvider) {
 });
 
 
-myApp.run(function($rootScope, $location, $route, AuthService) {
+applicationContext.run(function($rootScope, $location, $route, AuthService) {
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
         if (next.access.restricted && AuthService.isLoggedIn() === false) {
             $location.path('/');
