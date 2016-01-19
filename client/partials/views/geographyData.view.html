@@ -1,82 +1,29 @@
 <div ng-controller = "geographyDataController">
-<div class="row">
-    <div class="col-lg-12">
-        <h3 class="page-header">Geography Data</h3>
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">Geography Data</h3>
+        </div>
+        <!-- /.col-lg-12 -->
     </div>
-    <!-- /.col-lg-12 -->
-</div>
-<div class="row">
-    <div class="col-lg-3 col-xs-3">
-        <!-- small box -->
-        <div class="small-box bg-aqua">
-            <div class="inner">
-                <h3>{{currentNoOfUsersInDb}}</h3>
-                <p>Users</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-ios-people"></i>
-            </div>
-            <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-3">
-        <!-- small box -->
-        <div class="small-box bg-green">
-            <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
-                <p>Adaptation data</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-folder"></i>
-            </div>
-            <a ng-click = "goToAdaptationData()" href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-3">
-        <!-- small box -->
-        <div class="small-box bg-yellow">
-            <div class="inner">
-                <h3>{{currentNoOfGeographicFeaturesInDb}}</h3>
-                <p>Geography data</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-earth"></i>
-            </div>
-            <a ng-click = "goToGeographyData()"href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-3">
-        <!-- small box -->
-        <div class="small-box bg-red">
-            <div class="inner">
-                <h3>65</h3>
-                <p>Weather data</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-cloud"></i>
-            </div>
-            <a ng-click = "goToWeatherData()"href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div><!-- ./col -->
-</div><!-- /.row -->
-
-<div file-upload-component></div>
-
+    <div dashboard-component></div>
+    <div file-upload-component></div>
     <form>
         <div class="form-group">
             <div class="input-group">
-                <div class="input-group-addon"><i class="ion ion-ios-search-strong"></i></div>
+                <div class="input-group-addon">
+                    <i class="ion ion-ios-search-strong"></i>
+                </div>
                 <input type="text" class="form-control" placeholder="Search for parameter..." ng-model="searchGeographicalEntity">
             </div>
         </div>
     </form>
     <table class="table table-bordered table-striped table-hover table-responsive">
-
         <thead>
         <tr>
             <td>
                 <a href="" ng-click="sortType = 'name'; sortReverse = !sortReverse">
                     Type
+
                     <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
                     <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
                 </a>
@@ -84,6 +31,7 @@
             <td>
                 <a href="" ng-click="sortType = 'entityName'; sortReverse = !sortReverse">
                     Entity name
+
                     <span ng-show="sortType == 'entityName' && !sortReverse" class="fa fa-caret-down"></span>
                     <span ng-show="sortType == 'entityName' && sortReverse" class="fa fa-caret-up"></span>
                 </a>
@@ -91,6 +39,7 @@
             <td>
                 <a href="" ng-click="sortType = 'continent'; sortReverse = !sortReverse">
                     Continent
+
                     <span ng-show="sortType == 'continent' && !sortReverse" class="fa fa-caret-down"></span>
                     <span ng-show="sortType == 'continent' && sortReverse" class="fa fa-caret-up"></span>
                 </a>
@@ -98,6 +47,7 @@
             <td>
                 <a href="" ng-click="sortType = 'subregion'; sortReverse = !sortReverse">
                     Subregion
+
                     <span ng-show="sortType == 'subregion' && !sortReverse" class="fa fa-caret-down"></span>
                     <span ng-show="sortType == 'subregion' && sortReverse" class="fa fa-caret-up"></span>
                 </a>
@@ -105,6 +55,7 @@
             <td>
                 <a href="" ng-click="sortType = 'geometry'; sortReverse = !sortReverse">
                     Geometry
+
                     <span ng-show="sortType == 'geometry' && !sortReverse" class="fa fa-caret-down"></span>
                     <span ng-show="sortType == 'geometry' && sortReverse" class="fa fa-caret-up"></span>
                 </a>
@@ -118,11 +69,8 @@
             <td>{{ entity.continent }}</td>
             <td>{{ entity.subregion }}</td>
             <td>{{ entity.geometry }}</td>
-
         </tr>
         </tbody>
-
-
     </table>
 </div>
 

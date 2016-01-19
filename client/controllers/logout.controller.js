@@ -1,18 +1,21 @@
+var applicationContext = angular.module('myApp');
 
-angular.module('myApp').controller('logoutController',
-    ['$scope', '$location', 'AuthService',
-        function ($scope, $location, AuthService) {
+applicationContext
+    .controller('logoutController', logoutMainFunction);
 
-            $scope.logout = function () {
+logoutMainFunction.$inject = [
+    '$scope',
+    '$location',
+    'AuthService'
+];
 
-                console.log(AuthService.getUserStatus());
+function logoutMainFunction($scope, $location, AuthService) {
 
-                // call logout from service
-                AuthService.logout()
-                    .then(function () {
-                        $location.path('/login');
-                    });
-
-            };
-
-        }]);
+    $scope.logout = function() {
+        console.log(AuthService.getUserStatus());
+        AuthService.logout()
+            .then(function() {
+                $location.path('/login');
+            });
+    };
+}

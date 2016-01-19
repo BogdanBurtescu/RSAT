@@ -31,7 +31,6 @@ router.post('/register', function(req, res) {
         }
             //execute query for number of users in db to send via socket.io
             db.users.count(function(error, numberOfDocuments) {
-                // Do what you need the count for here.
                 socketio.sockets.emit('numberOfUsersSignal',
                                       {numberOfUsers: numberOfDocuments}); // emit an event for all connected clients
             });

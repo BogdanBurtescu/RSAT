@@ -1,110 +1,130 @@
-angular.module('myApp').controller('mainAppController',
-    ['$scope', '$location', 'AuthService', 'UserRetrievalService', 'SocketConnectionService', 'NoOfUsersRetrievalService', 'CountryRetrievalService', 'NoOfGeographicFeaturesService',
-        function ($scope, $location, AuthService, UserRetrievalService, SocketConnectionService, NoOfUsersRetrievalService, CountryRetrievalService, NoOfGeographicFeaturesService) {
+var applicationContext = angular.module('myApp');
 
-            //execute function to get number of users on controller load
-            getNumberOfUsers();
-            initializeUserCredentials();
-            getCountriesInformation();
-            getNumberOfGeographicFeatures();
+applicationContext
+    .controller('mainAppController', mainAppFunction);
 
-            $scope.mainAppName = "RSAT";
-            $scope.authUser = AuthService.getAuthorizedUser();
-            $scope.contentSelector = "default";
-            $scope.currentNoOfUsersInDb = null;
-            $scope.currentNoOfGeographicFeaturesInDb = null;
-            $scope.loggedInUser = null;
+mainAppFunction.$inject = [
+    '$scope',
+    '$location',
+    'AuthService',
+    'UserRetrievalService',
+    'SocketConnectionService',
+    'NoOfUsersRetrievalService',
+    'CountryRetrievalService',
+    'NoOfGeographicFeaturesService'
+];
 
 
-            //socket listener active on every update of the number of users in the db
-            SocketConnectionService.on('numberOfUsersSignal', function(data) {
-                console.log("Nr de useri transmis prin semnal: " + data.numberOfUsers);
+function mainAppFunction($scope, $location, AuthService,
+                         UserRetrievalService, SocketConnectionService,
+                         NoOfUsersRetrievalService, CountryRetrievalService,
+                         NoOfGeographicFeaturesService) {
+
+    //execute function to get number of users on controller load
+    getNumberOfUsers();
+    initializeUserCredentials();
+    getCountriesInformation();
+    getNumberOfGeographicFeatures();
+
+    $scope.mainAppName = "RSAT";
+    $scope.authUser = AuthService.getAuthorizedUser();
+    $scope.contentSelector = "default";
+    $scope.currentNoOfUsersInDb = null;
+    $scope.currentNoOfGeographicFeaturesInDb = null;
+    $scope.loggedInUser = null;
+
+
+    //socket listener active on every update of the number of users in the db
+    SocketConnectionService.on('numberOfUsersSignal', function(data) {
+        console.log("Nr de useri transmis prin semnal: " + data.numberOfUsers);
+        $scope.currentNoOfUsersInDb = data.numberOfUsers;
+    });
+
+
+
+    //function that makes available the data to be input in the top right corner user box
+    function initializeUserCredentials() {
+        UserRetrievalService.findRegisteredUser($scope.authUser).then(
+            function(data) {
+                $scope.loggedInUser = data;
+                console.log($scope.loggedInUser);
+            }
+        );
+    }
+
+    //function to transfer the main div view to the user information one
+    $scope.showEntireUser = function() {
+        $scope.contentSelector = 'user';
+    };
+
+    //function to retrieve the number of users existent in the database when rendering the page
+    function getNumberOfUsers() {
+        NoOfUsersRetrievalService.getNumberOfUsers().then(
+            function(data) {
                 $scope.currentNoOfUsersInDb = data.numberOfUsers;
+            }
+        );
+    };
+
+    function getNumberOfGeographicFeatures() {
+        NoOfGeographicFeaturesService.getNumberOfGeographicFeatures().then(
+            function(data) {
+                console.log(data);
+                $scope.currentNoOfGeographicFeaturesInDb = data.numberOfGeographicFeatures;
+            }
+        );
+    };
+
+    $scope.logout = function() {
+        // call logout from service
+        AuthService.logout()
+            .then(function() {
+                $location.path('/login');
             });
 
+    };
 
+    $scope.goToDashboard = function() {
+        $scope.contentSelector = "default";
+    };
 
-            //function that makes available the data to be input in the top right corner user box
-            function initializeUserCredentials(){
-                UserRetrievalService.findRegisteredUser($scope.authUser).then(
-                    function(data) {
-                        $scope.loggedInUser = data;
-                        console.log($scope.loggedInUser);
-                    }
-                );
+    $scope.goToGeographyData = function() {
+        $scope.contentSelector = "geographyData";
+
+    };
+
+    $scope.goToAdaptationData = function() {
+        $scope.contentSelector = "adaptationData";
+    };
+
+    $scope.goToWeatherData = function() {
+        $scope.contentSelector = "weatherData";
+    };
+
+    $scope.goToAirspaceView = function() {
+        $scope.contentSelector = "airspace";
+    };
+
+    $scope.goToFlightDataView = function() {
+        $scope.contentSelector = "flightData";
+    };
+
+    $scope.goToSimulationView = function() {
+        $scope.contentSelector = "simulation";
+    };
+
+    function getCountriesInformation() {
+        CountryRetrievalService.getCountries().then(
+            function(data) {
+                $scope.geographicalEntities = data;
+                console.log("Finished uploading the country information data");
             }
+        );
+    }
 
-            //function to transfer the main div view to the user information one
-            $scope.showEntireUser = function (){
-                $scope.contentSelector = 'user';
-            };
+}
 
-            //function to retrieve the number of users existent in the database when rendering the page
-            function getNumberOfUsers() {
-                NoOfUsersRetrievalService.getNumberOfUsers().then(
-                    function(data) {
-                        $scope.currentNoOfUsersInDb = data.numberOfUsers;
-                    }
-                );
-            };
-
-            function getNumberOfGeographicFeatures() {
-                NoOfGeographicFeaturesService.getNumberOfGeographicFeatures().then(
-                    function(data) {
-                        console.log(data);
-                        $scope.currentNoOfGeographicFeaturesInDb = data.numberOfGeographicFeatures;
-                    }
-                );
-            };
-
-            $scope.logout = function () {
-                // call logout from service
-                AuthService.logout()
-                    .then(function () {
-                        $location.path('/login');
-                    });
-
-            };
-
-            $scope.goToDashboard = function () {
-                $scope.contentSelector = "default";
-            };
-
-            $scope.goToGeographyData = function () {
-                $scope.contentSelector = "geographyData";
-            };
-
-            $scope.goToAdaptationData = function () {
-                $scope.contentSelector = "adaptationData";
-            };
-
-            $scope.goToWeatherData = function () {
-                $scope.contentSelector = "weatherData";
-            };
-
-            $scope.goToAirspaceView = function () {
-                $scope.contentSelector = "airspace";
-            };
-
-            $scope.goToFlightDataView = function () {
-                $scope.contentSelector = "flightData";
-            };
-
-            $scope.goToSimulationView = function () {
-                $scope.contentSelector = "simulation";
-            };
-
-            function getCountriesInformation() {
-                CountryRetrievalService.getCountries().then(
-                    function(data) {
-                        $scope.geographicalEntities = data;
-                        console.log("Finished uploading the country information data");
-                    }
-                );
-            }
-
-        }])
-
+applicationContext
     .directive('adaptationDataView', function() {
         return {
 
@@ -168,3 +188,9 @@ angular.module('myApp').controller('mainAppController',
         };
     })
 
+    .directive('dashboardComponent', function() {
+        return {
+
+            templateUrl: '../partials/views/components/dashboard.component.html'
+        };
+    });

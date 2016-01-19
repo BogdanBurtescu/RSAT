@@ -4,80 +4,33 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
-<div class="row">
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-aqua">
-            <div class="inner">
-                <h3>{{currentNoOfUsersInDb}}</h3>
-                <p>Users</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-ios-people"></i>
-            </div>
-            <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-green">
-            <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
-                <p>Adaptation data</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-folder"></i>
-            </div>
-            <a ng-click = "goToAdaptationData()"href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-yellow">
-            <div class="inner">
-                <h3>{{currentNoOfGeographicFeaturesInDb}}</h3>
-                <p>Geography data</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-earth"></i>
-            </div>
-            <a ng-click = "goToGeographyData()"href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-red">
-            <div class="inner">
-                <h3>65</h3>
-                <p>Weather data</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-ios-cloud"></i>
-            </div>
-            <a ng-click = "goToWeatherData()" href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div><!-- ./col -->
-</div><!-- /.row -->
+<div dashboard-component></div>
 <div class="row">
     <div class="col-lg-8">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
+
                 <div class="pull-right">
                     <div class="btn-group">
                         <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                             Actions
+
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu pull-right" role="menu">
-                            <li><a href="">Action</a>
+                            <li>
+                                <a href="">Action</a>
                             </li>
-                            <li><a href="">Another action</a>
+                            <li>
+                                <a href="">Another action</a>
                             </li>
-                            <li><a href="">Something else here</a>
+                            <li>
+                                <a href="">Something else here</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="">Separated link</a>
+                            <li>
+                                <a href="">Separated link</a>
                             </li>
                         </ul>
                     </div>
@@ -93,21 +46,27 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+
                 <div class="pull-right">
                     <div class="btn-group">
                         <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                             Actions
+
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu pull-right" role="menu">
-                            <li><a href="">Action</a>
+                            <li>
+                                <a href="">Action</a>
                             </li>
-                            <li><a href="">Another action</a>
+                            <li>
+                                <a href="">Another action</a>
                             </li>
-                            <li><a href="">Something else here</a>
+                            <li>
+                                <a href="">Something else here</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="">Separated link</a>
+                            <li>
+                                <a href="">Separated link</a>
                             </li>
                         </ul>
                     </div>
@@ -191,61 +150,79 @@
             </div>
             <!-- /.panel-body -->
         </div>
-
     </div>
     <!-- /.col-lg-8 -->
     <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-bell fa-fw"></i> Notifications Panel
+
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="list-group">
                     <a href="" class="list-group-item">
                         <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
-                                    </span>
+
+                        <span class="pull-right text-muted small">
+                            <em>4 minutes ago</em>
+                        </span>
                     </a>
                     <a href="" class="list-group-item">
                         <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                                    </span>
+
+                        <span class="pull-right text-muted small">
+                            <em>12 minutes ago</em>
+                        </span>
                     </a>
                     <a href="" class="list-group-item">
                         <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
-                                    </span>
+
+                        <span class="pull-right text-muted small">
+                            <em>27 minutes ago</em>
+                        </span>
                     </a>
                     <a href="" class="list-group-item">
                         <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small"><em>43 minutes ago</em>
-                                    </span>
+
+                        <span class="pull-right text-muted small">
+                            <em>43 minutes ago</em>
+                        </span>
                     </a>
                     <a href="" class="list-group-item">
                         <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small"><em>11:32 AM</em>
-                                    </span>
+
+                        <span class="pull-right text-muted small">
+                            <em>11:32 AM</em>
+                        </span>
                     </a>
                     <a href="" class="list-group-item">
                         <i class="fa fa-bolt fa-fw"></i> Server Crashed!
-                                    <span class="pull-right text-muted small"><em>11:13 AM</em>
-                                    </span>
+
+                        <span class="pull-right text-muted small">
+                            <em>11:13 AM</em>
+                        </span>
                     </a>
                     <a href="" class="list-group-item">
                         <i class="fa fa-warning fa-fw"></i> Server Not Responding
-                                    <span class="pull-right text-muted small"><em>10:57 AM</em>
-                                    </span>
+
+                        <span class="pull-right text-muted small">
+                            <em>10:57 AM</em>
+                        </span>
                     </a>
                     <a href="" class="list-group-item">
                         <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
-                                    <span class="pull-right text-muted small"><em>9:49 AM</em>
-                                    </span>
+
+                        <span class="pull-right text-muted small">
+                            <em>9:49 AM</em>
+                        </span>
                     </a>
                     <a href="" class="list-group-item">
                         <i class="fa fa-money fa-fw"></i> Payment Received
-                                    <span class="pull-right text-muted small"><em>Yesterday</em>
-                                    </span>
+
+                        <span class="pull-right text-muted small">
+                            <em>Yesterday</em>
+                        </span>
                     </a>
                 </div>
                 <!-- /.list-group -->
@@ -257,6 +234,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart Example
+
             </div>
             <div class="panel-body">
                 <div id="morris-donut-chart"></div>
@@ -269,6 +247,7 @@
             <div class="panel-heading">
                 <i class="fa fa-comments fa-fw"></i>
                 Chat
+
                 <div class="btn-group pull-right">
                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-chevron-down"></i>
@@ -277,35 +256,38 @@
                         <li>
                             <a href="">
                                 <i class="fa fa-refresh fa-fw"></i> Refresh
+
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <i class="fa fa-check-circle fa-fw"></i> Available
+
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <i class="fa fa-times fa-fw"></i> Busy
+
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <i class="fa fa-clock-o fa-fw"></i> Away
+
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a href="">
                                 <i class="fa fa-sign-out fa-fw"></i> Sign Out
+
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
             <!-- /.panel-heading -->
-
-
         </div>
         <!-- /.panel .chat-panel -->
     </div>

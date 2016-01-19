@@ -1,14 +1,22 @@
-angular.module('myApp').factory('NavigationService',
-    ['$q', '$timeout', '$http', '$location',
-        function ($q, $timeout, $http, $location) {
+var applicationContext = angular.module('myApp');
 
-            return ({
-                goToPath: goToPath
-            });
+applicationContext
+    .factory('NavigationService', NavigationService);
 
-            function goToPath(url){
-                $location.path(url);
-            }
+NavigationService.$inject = [
+    '$q',
+    '$timeout',
+    '$http',
+    '$location'
+];
 
+function NavigationService($location) {
 
-        }]);
+    return ({
+        goToPath: goToPath
+    });
+
+    function goToPath(url) {
+        $location.path(url);
+    }
+}

@@ -1,19 +1,23 @@
-angular.module('myApp').factory('NoOfGeographicFeaturesService',
-    ['$q', '$timeout', '$http',
-        function ($q, $timeout, $http) {
-            var receivedUser = null;
+var applicationContext = angular.module('myApp');
 
-            // return available functions for use in controllers
-            return ({
-                getNumberOfGeographicFeatures: getNumberOfGeographicFeatures
-            });
+applicationContext
+    .factory('NoOfGeographicFeaturesService', NoOfgeographicFeaturesService);
 
-            function getNumberOfGeographicFeatures () {
-                var promise = $http.get('/user/numberOfGeographicFeatures').then(function(response){
-                    console.log(response);
-                    return response.data;
-                });
-                return promise;
-            }
+NoOfgeographicFeaturesService.$inject = ['$http'];
 
-        }]);
+function NoOfgeographicFeaturesService($http) {
+    var receivedUser = null;
+
+    // return available functions for use in controllers
+    return ({
+        getNumberOfGeographicFeatures: getNumberOfGeographicFeatures
+    });
+
+    function getNumberOfGeographicFeatures() {
+        var promise = $http.get('/user/numberOfGeographicFeatures').then(function(response) {
+            console.log(response);
+            return response.data;
+        });
+        return promise;
+    }
+}
