@@ -11,10 +11,11 @@ var applicationContext = angular.module('myApp');
                 '$location',
                 'FileUploader',
                 '$http',
-                'SocketConnectionService'
+                'SocketConnectionService',
+                'CountryRetrievalService'
             ];
 
-        function geographyDataMainFunction($scope, $timeout, $location, FileUploader, $http, SocketConnectionService) {
+        function geographyDataMainFunction($scope, $timeout, $location, FileUploader, $http, SocketConnectionService, CountryRetrievalService) {
             var uploader = $scope.uploader = new FileUploader({
                 url: '/fileUploadService'
             });
@@ -74,6 +75,10 @@ var applicationContext = angular.module('myApp');
             SocketConnectionService.on('countriesSignal', function(data) {
                 $scope.geographicalEntities.push(data);
             });
+
+            $scope.remove = function(id) {
+                console.log(id);
+            }
 
         }
 

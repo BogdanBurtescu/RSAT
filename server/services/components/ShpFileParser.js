@@ -25,6 +25,7 @@ exports.parseShp = function(filePath){
                 console.log("Entry already exists in the DB");
             }else{
                 writeRecordInMongo(data);
+                countryTableFormat._id = data._id;
                 countryTableFormat.type = data.type;
                 countryTableFormat.entityName = data.properties.ADMIN;
                 countryTableFormat.continent = data.properties.CONTINENT;

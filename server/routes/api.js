@@ -97,18 +97,21 @@ router.get('/countries', function(req, res) {
     db.countries.find({}, function(err, countries){
         countries.forEach(function(country){
             var countryTableFormat = {
+                _id: null,
                 type: null,
                 entityName: null,
                 continent: null,
                 subregion: null,
                 geometry: null
             };
+            countryTableFormat._id = country._id;
             countryTableFormat.type = country.type;
             countryTableFormat.entityName = country.properties.ADMIN;
             countryTableFormat.continent = country.properties.CONTINENT;
             countryTableFormat.geometry = country.geometry.type;
             countryTableFormat.subregion = country.properties.SUBREGION;
             listOfCountries.push(countryTableFormat);
+            console.log()
         });
         res.json(listOfCountries);
 
