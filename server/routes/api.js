@@ -7,17 +7,9 @@ var express = require('express'),
     multer = require('multer');
 
 
-
 // Connection URL. This is where your mongodb server is running.
 var url = 'mongodb://localhost:27017/mean-auth';
 
-/** API path that will upload the files */
-// Example endpoint
-
-
-//router.get('/tasks', function(req, res) {
-//    res.render('form');
-//});
 
 
 router.post('/register', function(req, res) {
@@ -102,7 +94,8 @@ router.get('/countries', function(req, res) {
                 entityName: null,
                 continent: null,
                 subregion: null,
-                geometry: null
+                geometry: null,
+                geometryCoordinates: null
             };
             countryTableFormat._id = country._id;
             countryTableFormat.type = country.type;
@@ -110,13 +103,26 @@ router.get('/countries', function(req, res) {
             countryTableFormat.continent = country.properties.CONTINENT;
             countryTableFormat.geometry = country.geometry.type;
             countryTableFormat.subregion = country.properties.SUBREGION;
+            countryTableFormat.geometryCoordinates = country.geometry.coordinates;
             listOfCountries.push(countryTableFormat);
-            console.log()
         });
         res.json(listOfCountries);
 
     })
 
 });
+
+
+router.post('/deleteCountry', function(req, res) {
+   console.log(req.body.geographicEntityId);
+    console.log(typeof req.body.geographicEntityId);
+
+    db.countries.remove({"_id": db.ObjectId(req.body.geographicEntityId)}, function(err, docs) {  //db.users.remove({"_id": ObjectId("4d512b45cc9374271b02ec4f")});
+        if (err) return err;
+        console.log(docs);
+    });
+    res.end();
+});
+
 
 module.exports = router;

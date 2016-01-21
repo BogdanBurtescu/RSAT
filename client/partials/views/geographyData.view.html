@@ -70,7 +70,7 @@
             <td>{{ entity.subregion }}</td>
             <td>{{ entity.geometry }}</td>
             <td><button class = "btn btn-danger center-block" ng-click = "remove(entity._id)">Remove</button></td>
-            <td><button class = "btn btn-info center-block" ng-click = "remove(entity._id)">Edit</button></td>
+            <td><button class = "btn btn-info center-block" ng-click = "edit(entity.entityName, entity._id)">Edit</button></td>
 
 
         </tr>

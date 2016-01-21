@@ -31,6 +31,7 @@ exports.parseShp = function(filePath){
                 countryTableFormat.continent = data.properties.CONTINENT;
                 countryTableFormat.geometry = data.geometry.type;
                 countryTableFormat.subregion = data.properties.SUBREGION;
+                countryTableFormat.geometryCoordinates = data.geometry.coordinates;
                     var socketio = app.get('socketio');
                         socketio.sockets.emit('countriesSignal', countryTableFormat); // emit an event for all connected clients
 

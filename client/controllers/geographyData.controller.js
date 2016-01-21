@@ -12,10 +12,11 @@ var applicationContext = angular.module('myApp');
                 'FileUploader',
                 '$http',
                 'SocketConnectionService',
-                'CountryRetrievalService'
+                'CountryRetrievalService',
+                '$q'
             ];
 
-        function geographyDataMainFunction($scope, $timeout, $location, FileUploader, $http, SocketConnectionService, CountryRetrievalService) {
+        function geographyDataMainFunction($scope, $timeout, $location, FileUploader, $http, SocketConnectionService, CountryRetrievalService, $q) {
             var uploader = $scope.uploader = new FileUploader({
                 url: '/fileUploadService'
             });
@@ -65,8 +66,6 @@ var applicationContext = angular.module('myApp');
 
             console.info('uploader', uploader);
 
-
-
             $scope.sortType     = 'name'; // set the default sort type
             $scope.sortReverse  = false;  // set the default sort order
             $scope.searchGeographicalEntity   = '';     // set the default search/filter term
@@ -77,9 +76,36 @@ var applicationContext = angular.module('myApp');
             });
 
             $scope.remove = function(id) {
+
                 console.log(id);
+                CountryRetrievalService.deleteCountry(id);
+                getCountriesInformation();
+
+
             }
 
+            function getCountriesInformation() {
+                CountryRetrievalService.getCountries().then(
+                    function(data) {
+                        $scope.geographicalEntities = data;
+                        console.log("Finished uploading the country information data");
+                    }
+                );
+            }
+
+            $scope.edit = function(entityName, id) {
+                swal({
+                    title: entityName,
+                    text: "You have selected document with id:" + id,
+                    type: "info",
+                    showCancelButton: true,
+                    confirmButtonColor: "#00ACD6",
+                    confirmButtonText: "Save document",
+                    closeOnConfirm: false
+                },
+                    function(){
+                        swal("Saved succesfully!", "Document with id " + id + " has been saved successfully to the database!", "success"); });
+            }
         }
 
 applicationContext
