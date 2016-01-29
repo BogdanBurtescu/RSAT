@@ -4,9 +4,6 @@ applicationContext
     .factory('NavigationService', NavigationService);
 
 NavigationService.$inject = [
-    '$q',
-    '$timeout',
-    '$http',
     '$location'
 ];
 

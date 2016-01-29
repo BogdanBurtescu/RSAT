@@ -7,22 +7,18 @@ mainAppFunction.$inject = [
     '$scope',
     '$location',
     'AuthService',
-    'UserRetrievalService',
     'SocketConnectionService',
-    'NoOfUsersRetrievalService',
-    'CountryRetrievalService',
-    'NoOfGeographicFeaturesService'
+    'GeographyService',
+    'UserService'
 ];
 
-function mainAppFunction($scope, $location, AuthService,
-                         UserRetrievalService, SocketConnectionService,
-                         NoOfUsersRetrievalService, CountryRetrievalService,
-                         NoOfGeographicFeaturesService) {
+function mainAppFunction($scope, $location, AuthService, SocketConnectionService,
+                         GeographyService, UserService) {
     //execute function to get number of users on controller load
     getNumberOfUsers();
     initializeUserCredentials();
-    getCountriesInformation();
-    getNumberOfGeographicFeatures();
+    getGeographicEntitiesInformation();
+    getNumberOfGeographicEntities();
 
     $scope.mainAppName = "RSAT";
     $scope.authUser = AuthService.getAuthorizedUser();
@@ -34,18 +30,18 @@ function mainAppFunction($scope, $location, AuthService,
 
     //socket listener active on every update of the number of users in the db
     SocketConnectionService.on('numberOfUsersSignal', function(data) {
-        console.log("Nr de useri transmis prin semnal: " + data.numberOfUsers);
         $scope.currentNoOfUsersInDb = data.numberOfUsers;
     });
 
 
 
+
+
     //function that makes available the data to be input in the top right corner user box
     function initializeUserCredentials() {
-        UserRetrievalService.findRegisteredUser($scope.authUser).then(
+        UserService.findRegisteredUser($scope.authUser).then(
             function(data) {
                 $scope.loggedInUser = data;
-                console.log($scope.loggedInUser);
             }
         );
     }
@@ -57,17 +53,16 @@ function mainAppFunction($scope, $location, AuthService,
 
     //function to retrieve the number of users existent in the database when rendering the page
     function getNumberOfUsers() {
-        NoOfUsersRetrievalService.getNumberOfUsers().then(
+        UserService.getNumberOfUsers().then(
             function(data) {
                 $scope.currentNoOfUsersInDb = data.numberOfUsers;
             }
         );
     }
 
-    function getNumberOfGeographicFeatures() {
-        NoOfGeographicFeaturesService.getNumberOfGeographicFeatures().then(
+    function getNumberOfGeographicEntities() {
+        GeographyService.getNumberOfGeographicEntities().then(
             function(data) {
-                console.log(data);
                 $scope.currentNoOfGeographicFeaturesInDb = data.numberOfGeographicFeatures;
             }
         );
@@ -88,7 +83,6 @@ function mainAppFunction($scope, $location, AuthService,
 
     $scope.goToGeographyData = function() {
         $scope.contentSelector = "geographyData";
-
     };
 
     $scope.goToAdaptationData = function() {
@@ -111,11 +105,10 @@ function mainAppFunction($scope, $location, AuthService,
         $scope.contentSelector = "simulation";
     };
 
-    function getCountriesInformation() {
-        CountryRetrievalService.getCountries().then(
+    function getGeographicEntitiesInformation() {
+        GeographyService.getGeographicEntity().then(
             function(data) {
                 $scope.geographicalEntities = data;
-                console.log("Finished uploading the country information data");
             }
         );
     }
@@ -175,7 +168,7 @@ applicationContext
     .directive('mainView', function() {
         return {
 
-            templateUrl: '../partials/views/main.view.html'
+            templateUrl: '../partials/views/dashboard.view.html'
         };
     })
 

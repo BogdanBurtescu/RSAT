@@ -44,7 +44,7 @@ applicationContext.config(function($routeProvider) {
             }
         })
         .when('/geographyData', {
-            templateUrl: 'partials/geographyData.view.html',
+            templateUrl: 'partials/views/geographyData.view.html',
             access: {
                 restricted: true
             }

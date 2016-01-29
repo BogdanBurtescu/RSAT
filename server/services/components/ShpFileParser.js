@@ -33,9 +33,7 @@ exports.parseShp = function(filePath){
                 countryTableFormat.subregion = data.properties.SUBREGION;
                 countryTableFormat.geometryCoordinates = data.geometry.coordinates;
                     var socketio = app.get('socketio');
-                        socketio.sockets.emit('countriesSignal', countryTableFormat); // emit an event for all connected clients
-
-
+                        socketio.sockets.emit('geographicEntityUpdate', countryTableFormat); // emit an event for all connected clients
                 console.log("FEATURES!");
                 console.log(shpFeatures.length);
             }

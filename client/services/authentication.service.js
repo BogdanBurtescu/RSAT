@@ -6,12 +6,12 @@ applicationContext
 
 AuthenticationService.$inject = [
     '$q',
-    '$timeout',
-    '$http'
+    '$http',
+    'ServerCommunication'
 ];
 
 
-function AuthenticationService($q, $timeout, $http) {
+function AuthenticationService($q, $http, ServerCommunication) {
 
     // create user variable
     var user = null;
@@ -53,7 +53,7 @@ function AuthenticationService($q, $timeout, $http) {
         userToLogin.username = username;
         userToLogin.password = password;
 
-        // send a post request to the server
+ // send a post request to the server
         $http.post('/user/login', {
                 username: username,
                 password: password
@@ -75,7 +75,7 @@ function AuthenticationService($q, $timeout, $http) {
             });
 
         // return promise object
-        return deferred.promise;
+        return deferred.promise;promise;
 
     }
 

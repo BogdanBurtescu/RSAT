@@ -24,7 +24,8 @@ var app = express();
 
 
 // require routes
-var routes = require('./routes/api.js');
+var userRoutes = require('./routes/authentication.routes.js');
+var geographyRoutes = require('./routes/geography.routes.js');
 
 // define middleware
 app.use(express.static(path.join(__dirname, '../client')));
@@ -47,7 +48,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // routes
-app.use('/user/', routes);
+app.use('/user/', userRoutes);
+app.use('/geography/', geographyRoutes);
 
 
 
