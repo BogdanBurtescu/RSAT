@@ -3,7 +3,7 @@ var express = require('express'),
     router = express.Router(),
     passport = require('passport'),
     mongojs = require('mongojs'),
-    config = require('../configs/Config.js')
+    config = require('../configs/database.config.js'),
     db = mongojs(config.DatabaseConfig.databaseName, config.DatabaseConfig.databaseCollections),
     multer = require('multer');
 
@@ -12,7 +12,6 @@ router.get('/numberOfGeographicEntities', function(req, res) {
     db.countries.count(function(error, numberOfDocuments) {
         res.json({numberOfGeographicFeatures: numberOfDocuments})
     });
-
 });
 
 router.get('/geographicEntity', function(req, res) {

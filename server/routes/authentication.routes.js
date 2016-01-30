@@ -3,7 +3,7 @@ var express = require('express'),
     passport = require('passport'),
     User = require('../models/user.js'),
     mongojs = require('mongojs'),
-    config = require('../configs/Config.js')
+    config = require('../configs/database.config.js')
     db = mongojs(config.DatabaseConfig.databaseName, config.DatabaseConfig.databaseCollections),
     multer = require('multer');
 

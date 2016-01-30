@@ -8,7 +8,7 @@ var express = require('express'),
     passport = require('passport'),
     localStrategy = require('passport-local' ).Strategy,
     multer = require('multer'),
-    config = require('../server/configs/Config.js'),
+    config = require('configs/database.config.js'),
     mongojs = require('mongojs');
 
 
