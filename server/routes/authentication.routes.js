@@ -3,7 +3,8 @@ var express = require('express'),
     passport = require('passport'),
     User = require('../models/user.js'),
     mongojs = require('mongojs'),
-    db = mongojs('mean-auth', ['users', 'countries']),
+    config = require('../configs/Config.js')
+    db = mongojs(config.DatabaseConfig.databaseName, config.DatabaseConfig.databaseCollections),
     multer = require('multer');
 
 router.post('/register', function(req, res) {

@@ -13,8 +13,9 @@ mainAppFunction.$inject = [
 ];
 
 function mainAppFunction($scope, $location, AuthService, SocketConnectionService,
-                         GeographyService, UserService) {
-    //execute function to get number of users on controller load
+                         GeographyService, UserService)
+{
+
     getNumberOfUsers();
     initializeUserCredentials();
     getGeographicEntitiesInformation();

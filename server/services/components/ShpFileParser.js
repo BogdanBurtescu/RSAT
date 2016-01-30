@@ -4,7 +4,8 @@ var shapefileStream = require('shapefile-stream'),
     router = express.Router(),
     through = require('through2'),
     mongojs = require('mongojs'),
-    db = mongojs('mean-auth', ['users', 'countries']);
+    config = require('../../configs/Config.js')
+    db = mongojs(config.DatabaseConfig.databaseName, config.DatabaseConfig.databaseCollections);
 
 var countryTableFormat = {
     type: null,

@@ -49,7 +49,6 @@ applicationContext.config(function($routeProvider) {
                 restricted: true
             }
         })
-
         .otherwise({
             redirectTo: '/'
         });

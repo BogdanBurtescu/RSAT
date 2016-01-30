@@ -8,7 +8,7 @@ var app = require('../app'),
     csvFileParser = require('./components/CsvFileParser.js'),
     xmlFileParser = require('./components/XmlFileParser.js');
 
-exports.uploaderService = function(routePath)
+exports.initUploaderService = function(routePath)
 {
 //define storage and upload instances
     var storage = multer.diskStorage({

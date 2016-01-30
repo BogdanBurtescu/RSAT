@@ -3,7 +3,8 @@ var express = require('express'),
     router = express.Router(),
     passport = require('passport'),
     mongojs = require('mongojs'),
-    db = mongojs('mean-auth', ['users', 'countries']),
+    config = require('../configs/Config.js')
+    db = mongojs(config.DatabaseConfig.databaseName, config.DatabaseConfig.databaseCollections),
     multer = require('multer');
 
 
@@ -21,7 +22,7 @@ router.get('/geographicEntity', function(req, res) {
             var countryTableFormat = {
                 _id: null,
                 type: null,
-                entityName: null,
+                entityNase: null,
                 continent: null,
                 subregion: null,
                 geometry: null,

@@ -3,17 +3,18 @@ var express = require('express'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    expressSession = require('express-session'),
     mongoose = require('mongoose'),
-    hash = require('bcrypt-nodejs'),
     path = require('path'),
     passport = require('passport'),
     localStrategy = require('passport-local' ).Strategy,
-    multer = require('multer');
+    multer = require('multer'),
+    config = require('../server/configs/Config.js'),
+    mongojs = require('mongojs');
 
 
-// mongoose
-mongoose.connect('mongodb://localhost/mean-auth');
+
+var databaseConnectionURL = config.DatabaseConfig.databaseUrl;
+mongoose.connect(databaseConnectionURL);
 
 // user schema/model
 var User = require('./models/user.js');
