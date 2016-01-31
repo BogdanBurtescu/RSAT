@@ -12,12 +12,13 @@ var shapefileStream = require('shapefile-stream'),
 
 exports.parseShp = function(filePath){
     var shpFeatures = [];
+    var socketio = app.get('socketio');
+
     shapefileStream.createReadStream(filePath)
     .pipe( through.obj( function( data, enc, next ) {
         shpFeatures.push(data);
         db.GEOGRAPHICAL_ENTITIES.find(data, function(err, docs){
             if(docs.length){
-                console.log("Entry already exists in the DB");
             }else{
                 writeRecordInMongo(data);
                 var geographicEntity = new GeographicEntity(data._id,
@@ -29,8 +30,9 @@ exports.parseShp = function(filePath){
                                                             data.geometry.coordinates);
                     var socketio = app.get('socketio');
                         socketio.sockets.emit('geographicEntityUpdate', geographicEntity); // emit an event for all connected clients
-                console.log("FEATURES!");
-                console.log(shpFeatures.length);
+                socketio.sockets.emit('numberOfGeographicalEntitiesSignal',
+                    {numberOfGeographicalEntities: shpFeatures.length}); // emit an event for all connected clients
+
             }
         });
         next();

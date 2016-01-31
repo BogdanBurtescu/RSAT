@@ -34,19 +34,6 @@ var controllerName = "geographyDataController";
             $scope.maxSize = 10;
 
 
-            $scope.remove = function(id) {
-
-
-
-            };
-
-            function getGeographicEntitiesInformation() {
-                GeographyService.getGeographicEntity().then(
-                    function(data) {
-                        $scope.geographicalEntities = data;
-                    }
-                );
-            }
             function initUploader(){
 
                 var uploader = $scope.uploader = new FileUploader({
@@ -101,20 +88,34 @@ var controllerName = "geographyDataController";
             }
 
 
-            $scope.removeRow = function(_id){
-                var index = -1;
-                var comArr = eval( $scope.geographicalEntities );
-                for( var i = 0; i < comArr.length; i++ ) {
-                    if( comArr[i]._id === _id ) {
-                        index = i;
-                        break;
+            $scope.removeRow = function(_id, entityName){
+                swal({
+                    title: "Are you sure you want to delete " + entityName + " ?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes",
+                    closeOnConfirm: false
+                },
+                function(){
+                    var index = -1;
+                    var comArr = eval( $scope.geographicalEntities );
+                    for( var i = 0; i < comArr.length; i++ ) {
+                        if( comArr[i]._id === _id ) {
+                            index = i;
+                            break;
+                        }
                     }
-                }
-                if( index === -1 ) {
-                    console.log("ERROR");
-                }
-                $scope.geographicalEntities.splice( index, 1 );
-                GeographyService.deleteGeographicEntity(_id);
+                    if( index === -1 ) {
+                        console.log("ERROR");
+                    }
+                    $scope.geographicalEntities.splice( index, 1 );
+                    GeographyService.deleteGeographicEntity(_id);
+                    swal("Deleted!", "Feature " + entityName + " has been deleted!", "success");
+                });
+
+
+
             };
 
 
