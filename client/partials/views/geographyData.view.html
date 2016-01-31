@@ -17,6 +17,8 @@
             </div>
         </div>
     </form>
+    <center><uib-pagination total-items="geographicalEntities.length" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" num-pages="numPages"></uib-pagination></center>
+
     <table class="table table-bordered table-striped table-hover table-responsive">
         <thead>
         <tr>
@@ -63,19 +65,20 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="entity in geographicalEntities | orderBy:sortType:sortReverse | filter:searchGeographicalEntity">
+        <tr ng-repeat="entity in geographicalEntities | limitTo : 10 : (currentPage - 1)*pageSize| orderBy:sortType:sortReverse | filter:searchGeographicalEntity">
             <td>{{ entity.type }}</td>
             <td>{{ entity.entityName }}</td>
             <td>{{ entity.continent }}</td>
             <td>{{ entity.subregion }}</td>
             <td>{{ entity.geometry }}</td>
-            <td><button class = "btn btn-danger center-block" ng-click = "remove(entity._id)">Remove</button></td>
-            <td><button class = "btn btn-info center-block" ng-click = "edit(entity.entityName, entity._id)">Edit</button></td>
+            <td><button class = "btn btn-danger center-block" ng-click = "remove(entity._id)"><span class = "ion ion-ios-trash"></span></button></td>
+            <td><button class = "btn btn-info center-block" ng-click = "edit(entity.entityName, entity._id)"><span class = "ion ion-edit"></span></button></td>
 
 
         </tr>
         </tbody>
     </table>
+    <center><uib-pagination total-items="geographicalEntities.length" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" num-pages="numPages"></uib-pagination></center>
 </div>
 
 

@@ -10,16 +10,6 @@ var shapefileStream = require('shapefile-stream'),
     GeographicEntity = require('../../models/GeographicEntity.model.js');
 
 
-
-var countryTableFormat = {
-    type: null,
-    entityName: null,
-    continent: null,
-    subregion: null,
-    geometry: null
-};
-
-
 exports.parseShp = function(filePath){
     var shpFeatures = [];
     shapefileStream.createReadStream(filePath)

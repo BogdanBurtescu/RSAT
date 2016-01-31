@@ -1,4 +1,4 @@
-var applicationContext = angular.module('myApp', ['ngRoute', 'angularFileUpload']);
+var applicationContext = angular.module('myApp', ['ngRoute', 'angularFileUpload', 'ui.bootstrap']);
 
 applicationContext.config(function($routeProvider) {
     $routeProvider
@@ -53,6 +53,7 @@ applicationContext.config(function($routeProvider) {
             redirectTo: '/'
         });
 });
+
 
 
 applicationContext.run(function($rootScope, $location, $route, AuthService) {

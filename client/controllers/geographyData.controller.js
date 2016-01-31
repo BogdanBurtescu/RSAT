@@ -26,6 +26,10 @@ var controllerName = "geographyDataController";
 
             initUploader();
 
+            $scope.pageSize = 10;
+            $scope.maxSize = 10;
+
+
             $scope.remove = function(id) {
 
                 console.log(id);
@@ -41,7 +45,6 @@ var controllerName = "geographyDataController";
                     }
                 );
             }
-
             function initUploader(){
 
                 var uploader = $scope.uploader = new FileUploader({
@@ -95,6 +98,8 @@ var controllerName = "geographyDataController";
                 $scope.searchGeographicalEntity   = '';     // set the default search/filter term
             }
 
+
+
             $scope.edit = function(entityName, id) {
                 swal({
                     title: entityName,
@@ -109,6 +114,7 @@ var controllerName = "geographyDataController";
                         swal("Saved succesfully!", "Document with id " + id + " has been saved successfully to the database!", "success"); });
             }
         }
+
 
 applicationContext
     .directive('fileUploadComponent', function() {

@@ -33,6 +33,9 @@ function ServerCommunication($http, $q) {
                 } else {
                     deferred.reject();
                 }
+            })
+            .then(function(){
+                console.log("Am terminat post requestu")
             });
         return deferred.promise;
     }
