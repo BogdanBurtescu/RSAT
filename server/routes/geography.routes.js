@@ -5,38 +5,31 @@ var express = require('express'),
     mongojs = require('mongojs'),
     config = require('../configs/database.config.js'),
     db = mongojs(config.DatabaseConfig.databaseName, config.DatabaseConfig.databaseCollections),
-    multer = require('multer');
+    multer = require('multer'),
+    GeographicEntity = require('../models/GeographicEntity.model.js');
 
 
 router.get('/numberOfGeographicEntities', function(req, res) {
-    db.countries.count(function(error, numberOfDocuments) {
+    db.GEOGRAPHICAL_ENTITIES.count(function(error, numberOfDocuments) {
         res.json({numberOfGeographicFeatures: numberOfDocuments})
     });
 });
 
 router.get('/geographicEntity', function(req, res) {
-    var listOfCountries = [];
-    db.countries.find({}, function(err, countries){
-        countries.forEach(function(country){
-            var countryTableFormat = {
-                _id: null,
-                type: null,
-                entityNase: null,
-                continent: null,
-                subregion: null,
-                geometry: null,
-                geometryCoordinates: null
-            };
-            countryTableFormat._id = country._id;
-            countryTableFormat.type = country.type;
-            countryTableFormat.entityName = country.properties.ADMIN;
-            countryTableFormat.continent = country.properties.CONTINENT;
-            countryTableFormat.geometry = country.geometry.type;
-            countryTableFormat.subregion = country.properties.SUBREGION;
-            countryTableFormat.geometryCoordinates = country.geometry.coordinates;
-            listOfCountries.push(countryTableFormat);
+    var listOfGeographicEntities = [];
+    db.GEOGRAPHICAL_ENTITIES.find({}, function(err, documents){
+        documents.forEach(function(document){
+
+            var geographicEntity = new GeographicEntity(document._id,
+                document.type,
+                document.properties.ADMIN,
+                document.properties.CONTINENT,
+                document.geometry.type,
+                document.properties.SUBREGION,
+                document.geometry.coordinates);
+            listOfGeographicEntities.push(geographicEntity);
         });
-        res.json(listOfCountries);
+        res.json(listOfGeographicEntities);
 
     })
 
@@ -47,7 +40,7 @@ router.post('/deleteGeographicEntity', function(req, res) {
     console.log(req.body.geographicEntityId);
     console.log(typeof req.body.geographicEntityId);
 
-    db.countries.remove({"_id": db.ObjectId(req.body.geographicEntityId)}, function(err, docs) {  //db.users.remove({"_id": ObjectId("4d512b45cc9374271b02ec4f")});
+    db.GEOGRAPHICAL_ENTITIES.remove({"_id": db.ObjectId(req.body.geographicEntityId)}, function(err, docs) {  //db.users.remove({"_id": ObjectId("4d512b45cc9374271b02ec4f")});
         if (err) return err;
         console.log(docs);
     });
@@ -55,36 +48,6 @@ router.post('/deleteGeographicEntity', function(req, res) {
 });
 
 
-router.get('/geographicEntity', function(req, res) {
 
-    var listOfCountries = [];
-    db.countries.find({}, function(err, countries){
-        countries.forEach(function(country){
-            var countryTableFormat = {
-                _id: null,
-                type: null,
-                entityName: null,
-                continent: null,
-                subregion: null,
-                geometry: null,
-                geometryCoordinates: null
-            };
-            countryTableFormat._id = country._id;
-            countryTableFormat.type = country.type;
-            countryTableFormat.entityName = country.properties.ADMIN;
-            countryTableFormat.continent = country.properties.CONTINENT;
-            countryTableFormat.geometry = country.geometry.type;
-            countryTableFormat.subregion = country.properties.SUBREGION;
-            countryTableFormat.geometryCoordinates = country.geometry.coordinates;
-            listOfCountries.push(countryTableFormat);
-        });
-
-        res.json(listOfCountries);
-
-
-
-    })
-
-});
 
 module.exports = router;

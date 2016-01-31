@@ -4,8 +4,12 @@ var shapefileStream = require('shapefile-stream'),
     router = express.Router(),
     through = require('through2'),
     mongojs = require('mongojs'),
-    config = require('../../configs/database.config.js')
-    db = mongojs(config.DatabaseConfig.databaseName, config.DatabaseConfig.databaseCollections);
+    config = require('../../configs/database.config.js'),
+    db = mongojs(config.DatabaseConfig.databaseName,
+                 config.DatabaseConfig.databaseCollections),
+    GeographicEntity = require('../../models/GeographicEntity.model.js');
+
+
 
 var countryTableFormat = {
     type: null,
@@ -21,20 +25,20 @@ exports.parseShp = function(filePath){
     shapefileStream.createReadStream(filePath)
     .pipe( through.obj( function( data, enc, next ) {
         shpFeatures.push(data);
-        db.countries.find(data, function(err, docs){
+        db.GEOGRAPHICAL_ENTITIES.find(data, function(err, docs){
             if(docs.length){
                 console.log("Entry already exists in the DB");
             }else{
                 writeRecordInMongo(data);
-                countryTableFormat._id = data._id;
-                countryTableFormat.type = data.type;
-                countryTableFormat.entityName = data.properties.ADMIN;
-                countryTableFormat.continent = data.properties.CONTINENT;
-                countryTableFormat.geometry = data.geometry.type;
-                countryTableFormat.subregion = data.properties.SUBREGION;
-                countryTableFormat.geometryCoordinates = data.geometry.coordinates;
+                var geographicEntity = new GeographicEntity(data._id,
+                                                            data.type,
+                                                            data.properties.ADMIN,
+                                                            data.properties.CONTINENT,
+                                                            data.geometry.type,
+                                                            data.properties.SUBREGION,
+                                                            data.geometry.coordinates);
                     var socketio = app.get('socketio');
-                        socketio.sockets.emit('geographicEntityUpdate', countryTableFormat); // emit an event for all connected clients
+                        socketio.sockets.emit('geographicEntityUpdate', geographicEntity); // emit an event for all connected clients
                 console.log("FEATURES!");
                 console.log(shpFeatures.length);
             }
@@ -46,8 +50,8 @@ exports.parseShp = function(filePath){
 };
 
 function writeRecordInMongo(iRecord){
-    db.countries.insert(iRecord);
-    db.countries.count(function(error, numberOfDocuments) {
+    db.GEOGRAPHICAL_ENTITIES.insert(iRecord);
+    db.GEOGRAPHICAL_ENTITIES.count(function(error, numberOfDocuments) {
         //console.log("Inserted " + numberOfDocuments + " records in DB");
     });
 }

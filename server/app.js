@@ -8,7 +8,7 @@ var express = require('express'),
     passport = require('passport'),
     localStrategy = require('passport-local' ).Strategy,
     multer = require('multer'),
-    config = require('configs/database.config.js'),
+    config = require('./configs/database.config.js'),
     mongojs = require('mongojs');
 
 
@@ -17,7 +17,7 @@ var databaseConnectionURL = config.DatabaseConfig.databaseUrl;
 mongoose.connect(databaseConnectionURL);
 
 // user schema/model
-var User = require('./models/user.js');
+var User = require('./models/User.model.js');
 
 // create instance of express
 var app = express();

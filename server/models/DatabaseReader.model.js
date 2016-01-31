@@ -1,9 +1,10 @@
 var express = require('express'),
     router = express.Router(),
     passport = require('passport'),
-    User = require('../models/user.js'),
+    User = require('User.model.js'),
     mongojs = require('mongojs'),
-    db = mongojs('RSAT', ['users']);
+    config = require('../configs/database.config.js'),
+    db = mongojs(config.DatabaseConfig.databaseName, config.DatabaseConfig.databaseCollections);
 
 
 
