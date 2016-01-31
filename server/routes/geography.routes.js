@@ -54,6 +54,19 @@ router.post('/deleteGeographicEntity', function(req, res) {
     res.end();
 });
 
+router.get('/deleteAllGeographicEntities', function(req, res){
+    var socketio = req.app.get('socketio');
+    db.GEOGRAPHICAL_ENTITIES.drop(function(){
+        console.log("Collection dropped");
+    })
+    db.GEOGRAPHICAL_ENTITIES.count(function(error, numberOfDocuments) {
+        // Do what you need the count for here.
+        socketio.sockets.emit('numberOfGeographicalEntitiesSignal',
+            {numberOfGeographicalEntities: numberOfDocuments}); // emit an event for all connected clients
+        console.log("SIGNAL EMITTTEd");
+    });
+})
+
 
 
 

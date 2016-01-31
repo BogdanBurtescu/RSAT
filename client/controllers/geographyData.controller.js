@@ -88,7 +88,7 @@ var controllerName = "geographyDataController";
             }
 
 
-            $scope.removeRow = function(_id, entityName){
+            $scope.removeGeographicEntity = function(_id, entityName){
                 swal({
                     title: "Are you sure you want to delete " + entityName + " ?",
                     type: "warning",
@@ -96,7 +96,7 @@ var controllerName = "geographyDataController";
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "Yes",
                     closeOnConfirm: false
-                },
+                    },
                 function(){
                     var index = -1;
                     var comArr = eval( $scope.geographicalEntities );
@@ -111,15 +111,38 @@ var controllerName = "geographyDataController";
                     }
                     $scope.geographicalEntities.splice( index, 1 );
                     GeographyService.deleteGeographicEntity(_id);
-                    swal("Deleted!", "Feature " + entityName + " has been deleted!", "success");
+                    swal({
+                        title: "Deleted!",
+                        text: "You have successfully deleted " + entityName + " !",
+                        type: "success",
+                        timer: 1000,
+                        showConfirmButton: false
+                    });
                 });
-
-
-
             };
 
+            $scope.removeAllGeographicEntities = function() {
 
+                swal({
+                        title: "Are you sure you want to delete all geography entities?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes",
+                        closeOnConfirm: false
+                    },
+                    function(){
+                        $scope.geographicalEntities = [];
+                        GeographyService.deleteAllGeographicEntities();
+                        swal({
+                            title: "You have successfully deleted all geography entities",
+                            type: "success",
+                            timer: 1000,
+                            showConfirmButton: false
+                        });
+                    });
 
+            };
 
             $scope.edit = function(entityName, id) {
                 swal({

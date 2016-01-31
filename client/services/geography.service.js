@@ -11,7 +11,8 @@ function GeographyService(ServerCommunication) {
     return ({
         getGeographicEntity: getGeographicEntity,
         deleteGeographicEntity: deleteGeographicEntity,
-        getNumberOfGeographicEntities: getNumberOfGeographicEntities
+        getNumberOfGeographicEntities: getNumberOfGeographicEntities,
+        deleteAllGeographicEntities: deleteAllGeographicEntities
     });
 
     function getGeographicEntity() {
@@ -28,5 +29,9 @@ function GeographyService(ServerCommunication) {
         ServerCommunication.initPostRequest('/geography/deleteGeographicEntity', {
             geographicEntityId: geographicEntityId
         })
+    }
+
+    function deleteAllGeographicEntities(){
+        ServerCommunication.initGetRequest('/geography/deleteAllGeographicEntities');
     }
 }

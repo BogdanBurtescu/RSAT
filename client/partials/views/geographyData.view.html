@@ -13,7 +13,7 @@
                 <div class="input-group-addon">
                     <i class="ion ion-ios-search-strong"></i>
                 </div>
-                <input type="text" class="form-control" placeholder="Search for parameter..." ng-model="searchGeographicalEntity">
+                <input type="text" class="form-control" placeholder="Search for parameter..." ng-model="search">
             </div>
         </div>
     </form>
@@ -62,16 +62,17 @@
                     <span ng-show="sortType == 'geometry' && sortReverse" class="fa fa-caret-up"></span>
                 </a>
             </td>
+            <td colspan="2"><button class = "btn btn-danger center-block" ng-click = "removeAllGeographicEntities()">Delete all</button></td>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="entity in geographicalEntities | limitTo : 10 : (currentPage - 1)*pageSize| orderBy:sortType:sortReverse | filter:searchGeographicalEntity">
+        <tr ng-repeat="entity in geographicalEntities | limitTo : 10 : (currentPage - 1)*pageSize| orderBy:sortType:sortReverse">
             <td>{{ entity.type }}</td>
             <td>{{ entity.entityName }}</td>
             <td>{{ entity.continent }}</td>
             <td>{{ entity.subregion }}</td>
             <td>{{ entity.geometry }}</td>
-            <td><button class = "btn btn-danger center-block" ng-click = "removeRow(entity._id, entity.entityName)"><span class = "ion ion-ios-trash"></span></button></td>
+            <td><button class = "btn btn-danger center-block" ng-click = "removeGeographicEntity(entity._id, entity.entityName)"><span class = "ion ion-ios-trash"></span></button></td>
             <td><button class = "btn btn-info center-block" ng-click = "edit(entity.entityName, entity._id)"><span class = "ion ion-edit"></span></button></td>
 
 
