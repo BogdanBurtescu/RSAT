@@ -36,6 +36,7 @@ router.get('/geographicEntity', function(req, res) {
 });
 
 router.post('/deleteGeographicEntity', function(req, res) {
+    var socketio = req.app.get('socketio');
 
     console.log(req.body.geographicEntityId);
     console.log(typeof req.body.geographicEntityId);
@@ -43,6 +44,12 @@ router.post('/deleteGeographicEntity', function(req, res) {
     db.GEOGRAPHICAL_ENTITIES.remove({"_id": db.ObjectId(req.body.geographicEntityId)}, function(err, docs) {  //db.users.remove({"_id": ObjectId("4d512b45cc9374271b02ec4f")});
         if (err) return err;
         console.log(docs);
+    });
+    db.GEOGRAPHICAL_ENTITIES.count(function(error, numberOfDocuments) {
+        // Do what you need the count for here.
+        socketio.sockets.emit('numberOfGeographicalEntitiesSignal',
+            {numberOfGeographicalEntities: numberOfDocuments}); // emit an event for all connected clients
+        console.log("SIGNAL EMITTTEd");
     });
     res.end();
 });

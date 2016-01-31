@@ -34,8 +34,9 @@ function mainAppFunction($scope, $location, AuthService, SocketConnectionService
         $scope.currentNoOfUsersInDb = data.numberOfUsers;
     });
 
-
-
+    SocketConnectionService.on('numberOfGeographicalEntitiesSignal', function(data) {
+        $scope.currentNoOfGeographicFeaturesInDb = data.numberOfGeographicalEntities;
+    });
 
 
     //function that makes available the data to be input in the top right corner user box

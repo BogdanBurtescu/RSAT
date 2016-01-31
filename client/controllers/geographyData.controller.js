@@ -24,6 +24,10 @@ var controllerName = "geographyDataController";
                 $scope.geographicalEntities.push(data);
             });
 
+            SocketConnectionService.on('numberOfGeographicalEntitiesSignal', function(data) {
+                $scope.numberOfGeographicEntities = data;
+            });
+
             initUploader();
 
             $scope.pageSize = 10;
@@ -32,9 +36,7 @@ var controllerName = "geographyDataController";
 
             $scope.remove = function(id) {
 
-                console.log(id);
-                GeographyService.deleteGeographicEntity(id);
-                getGeographicEntitiesInformation();
+
 
             };
 
@@ -97,6 +99,24 @@ var controllerName = "geographyDataController";
                 $scope.sortReverse  = false;  // set the default sort order
                 $scope.searchGeographicalEntity   = '';     // set the default search/filter term
             }
+
+
+            $scope.removeRow = function(_id){
+                var index = -1;
+                var comArr = eval( $scope.geographicalEntities );
+                for( var i = 0; i < comArr.length; i++ ) {
+                    if( comArr[i]._id === _id ) {
+                        index = i;
+                        break;
+                    }
+                }
+                if( index === -1 ) {
+                    console.log("ERROR");
+                }
+                $scope.geographicalEntities.splice( index, 1 );
+                GeographyService.deleteGeographicEntity(_id);
+            };
+
 
 
 
