@@ -17,8 +17,7 @@ var controllerName = "geographyDataController";
             ];
 
         function geographyDataMainFunction($scope, $timeout, $location, FileUploader, $http, SocketConnectionService, GeographyService, $q) {
-
-
+            $scope.geographicalEntities = [];
             //socket listener active on every update of the number of users in the db
             SocketConnectionService.on('geographicEntityUpdate', function(data) {
                 $scope.geographicalEntities.push(data);
@@ -141,6 +140,7 @@ var controllerName = "geographyDataController";
                             showConfirmButton: false
                         });
                     });
+
 
             };
 

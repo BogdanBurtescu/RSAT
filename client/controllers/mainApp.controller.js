@@ -18,7 +18,6 @@ function mainAppFunction($scope, $location, AuthService, SocketConnectionService
 
     getNumberOfUsers();
     initializeUserCredentials();
-    getGeographicEntitiesInformation();
     getNumberOfGeographicEntities();
 
     $scope.mainAppName = "RSAT";
@@ -107,13 +106,7 @@ function mainAppFunction($scope, $location, AuthService, SocketConnectionService
         $scope.contentSelector = "simulation";
     };
 
-    function getGeographicEntitiesInformation() {
-        GeographyService.getGeographicEntity().then(
-            function(data) {
-                $scope.geographicalEntities = data;
-            }
-        );
-    }
+
 
 }
 
