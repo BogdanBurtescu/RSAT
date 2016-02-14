@@ -141,23 +141,11 @@ var controllerName = "geographyDataController";
                             showConfirmButton: false
                         });
                     });
-
-
             };
 
             $scope.edit = function(entityName, id) {
-                swal({
-                    title: entityName,
-                    text: "You have selected document with id:" + id,
-                    type: "info",
-                    showCancelButton: true,
-                    confirmButtonColor: "#00ACD6",
-                    confirmButtonText: "Save document",
-                    closeOnConfirm: false
-                },
-                    function(){
-                        swal("Saved succesfully!", "Document with id " + id + " has been saved successfully to the database!", "success"); });
-            }
+                $location.path('/geography/edit/' + id);
+            };
 
             function initGeographicalEntitiesTable()
             {

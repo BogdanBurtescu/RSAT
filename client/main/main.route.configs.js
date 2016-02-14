@@ -49,10 +49,23 @@ applicationContext.config(function($routeProvider) {
                 restricted: true
             }
         })
+
+        .when('/geography/edit/:_id', {
+            templateUrl: 'partials/views/geographicalEntity.edit.view.html',
+            controller: 'geographicalEntityEdit',
+            access: {
+                restricted: true
+            }
+        })
         .otherwise({
             redirectTo: '/'
         });
 });
+
+
+
+
+
 
 
 
