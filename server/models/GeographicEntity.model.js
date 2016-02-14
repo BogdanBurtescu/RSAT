@@ -4,7 +4,7 @@ function GeographicEntity(_id,
                           continent,
                           subregion,
                           geometry,
-                          geometryCoordinates)
+                          geometryCoordinates, addedBy)
 {
     this._id = _id;
     this.type = type;
@@ -13,6 +13,7 @@ function GeographicEntity(_id,
     this.subregion = subregion;
     this.geometry = geometry;
     this.geometryCoordinates = geometryCoordinates;
+    this.addedBy = addedBy;
 }
 
 module.exports = GeographicEntity;

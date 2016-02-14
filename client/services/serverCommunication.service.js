@@ -15,9 +15,13 @@ function ServerCommunication($http, $q) {
 
     function initGetRequest(url, params)
     {
-        var promise = $http.get(url, params).then(function(response) {
-            return response.data;
-        });
+        var promise = $http.get(url, params)
+            .then(function(response) {
+                return response.data;
+            })
+            .finally(function(){
+                loading = false;
+            });
         return promise;
     }
 

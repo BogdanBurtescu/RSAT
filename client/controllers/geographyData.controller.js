@@ -13,11 +13,11 @@ var controllerName = "geographyDataController";
                 '$http',
                 'SocketConnectionService',
                 'GeographyService',
-                '$q'
+                '$q',
+                "LoaderService"
             ];
 
-        function geographyDataMainFunction($scope, $timeout, $location, FileUploader, $http, SocketConnectionService, GeographyService, $q) {
-            $scope.geographicalEntities = [];
+        function geographyDataMainFunction($scope, $timeout, $location, FileUploader, $http, SocketConnectionService, GeographyService, $q, LoaderService) {
             //socket listener active on every update of the number of users in the db
             SocketConnectionService.on('geographicEntityUpdate', function(data) {
                 $scope.geographicalEntities.push(data);
@@ -27,6 +27,7 @@ var controllerName = "geographyDataController";
                 $scope.numberOfGeographicEntities = data;
             });
 
+            initGeographicalEntitiesTable();
             initUploader();
 
             $scope.pageSize = 10;
@@ -157,8 +158,19 @@ var controllerName = "geographyDataController";
                     function(){
                         swal("Saved succesfully!", "Document with id " + id + " has been saved successfully to the database!", "success"); });
             }
-        }
 
+            function initGeographicalEntitiesTable()
+            {
+                LoaderService.initiateLoader("Loading data...");
+                GeographyService.getGeographicEntity().then(
+                    function(data)
+                    {
+                        $scope.geographicalEntities = data;
+                        LoaderService.destroyLoader();
+                    }
+                );
+            }
+        }
 
 applicationContext
     .directive('fileUploadComponent', function() {
