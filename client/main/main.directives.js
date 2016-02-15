@@ -60,13 +60,15 @@ applicationContext
     .directive('mainMenuComponent', function() {
         return {
 
-            templateUrl: '../partials/views/components/mainMenu.component.html'
+            templateUrl: '../partials/views/components/mainMenu.component.html',
+            controller: 'mainMenuController'
         };
     })
 
     .directive('dashboardComponent', function() {
         return {
+            templateUrl: '../partials/views/components/dashboard.component.html',
+            controller: 'dashboardPanelController'
 
-            templateUrl: '../partials/views/components/dashboard.component.html'
         };
     });

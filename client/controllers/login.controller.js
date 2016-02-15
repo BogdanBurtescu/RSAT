@@ -30,7 +30,7 @@ function loginControllerMainFunction($scope, $location, AuthService) {
                     type: "success",
                     showConfirmButton: false
                 });
-                $location.path('/main');
+                $location.path('/dashboard');
                 $scope.disabled = false;
                 $scope.loginForm = {};
             })

@@ -1,47 +1,49 @@
-<nav class="navbar navbar-inverse navbar-static-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
+<div>
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href=""ng-click = "goToDashboard()" style = "font-size: 15px; text-align: center"><i class="ion ion-ios-speedometer"style = "font-size: 30px" ></i><br> Dashboard</a>
-                </li>
-                <li>
-                    <a href=""ng-click = "goToFlightDataView()" style = "font-size: 15px; text-align: center"><i class="ion ion-plane" style = "font-size: 30px"></i><br> Flight data</a>
-                </li>
-                <li>
-                    <a href=""ng-click = "goToAirspaceView()" style = "font-size: 15px; text-align: center"><i class="ion ion-social-buffer "style = "font-size: 30px" ></i><br> Airspace</a>
-                </li>
-                <li>
-                    <a href=""ng-click = "goToSimulationView()" style = "font-size: 15px; text-align: center"><i class="ion ion-clipboard"style = "font-size: 30px" ></i><br> Simulation</a>
-                </li>
-
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href=""data-toggle="dropdown" style = "font-size: 15px; text-align: center"><i class="ion ion-ios-contact"style = "font-size: 30px" ></i><br>{{loggedInUser.firstName}} {{loggedInUser.lastName}}</a>
-                    <ul class="dropdown-menu dropdown-user navbar-inverse">
-                        <li>
-                            <a href = "" ng-click = 'showEntireUser()'><i class="ion ion-information-circled"></i>Account information</a>
-                        </li>
-                    <li class="divider"></li>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
                     <li>
-                        <a href = "" ng-click='logout()'><i class="ion ion-log-out"></i> Logout</a>
+                        <a href=""ng-click = "goToDashboard()" style = "font-size: 15px; text-align: center"><i class="ion ion-ios-speedometer"style = "font-size: 30px" ></i><br> Dashboard</a>
                     </li>
-                    </ul>
-                </li>
-            </ul>
+                    <li>
+                        <a href=""ng-click = "goToFlightDataView()" style = "font-size: 15px; text-align: center"><i class="ion ion-plane" style = "font-size: 30px"></i><br> Flight data</a>
+                    </li>
+                    <li>
+                        <a href=""ng-click = "goToAirspaceView()" style = "font-size: 15px; text-align: center"><i class="ion ion-social-buffer "style = "font-size: 30px" ></i><br> Airspace</a>
+                    </li>
+                    <li>
+                        <a href=""ng-click = "goToSimulationView()" style = "font-size: 15px; text-align: center"><i class="ion ion-clipboard"style = "font-size: 30px" ></i><br> Simulation</a>
+                    </li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href=""data-toggle="dropdown" style = "font-size: 15px; text-align: center"><i class="ion ion-ios-contact"style = "font-size: 30px" ></i><br>{{loggedInUser.firstName}} {{loggedInUser.lastName}}</a>
+                        <ul class="dropdown-menu dropdown-user navbar-inverse">
+                            <li>
+                                <a href = "" ng-click = 'showEntireUser()'><i class="ion ion-information-circled"></i>Account information</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href = "" ng-click='logout()'><i class="ion ion-log-out"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
 
 
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</div>

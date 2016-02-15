@@ -1,94 +1,109 @@
-<div ng-controller = "geographyDataController">
-    <div class="row">
-        <div class="col-lg-12">
-            <h3 class="page-header">Geography Data</h3>
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <div dashboard-component></div>
-    <div file-upload-component></div>
-    <form>
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-addon">
-                    <i class="ion ion-ios-search-strong"></i>
+<div style = "width: 100%; height: 100%">
+    <div id="wrapper">
+        <!-- Navigation -->
+        <div main-menu-component></div>
+        <div>
+            <div class="page-wrapper">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="page-header">Flight Data</h3>
+                    </div>
+                    <!-- /.col-lg-12 -->
                 </div>
-                <input type="text" class="form-control" placeholder="Search for parameter..." ng-model="search">
+                <div dashboard-component></div>
+                <div file-upload-component></div>
+                <form>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="ion ion-ios-search-strong"></i>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Search for parameter..." ng-model="search">
+                        </div>
+                    </div>
+                </form>
+                <center><uib-pagination total-items="geographicalEntities.length" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" num-pages="numPages"></uib-pagination></center>
+                <div ng-if="geographicalEntities.length !== 0">
+                    <table class="table table-bordered table-striped table-hover table-responsive">
+                        <thead>
+                        <tr>
+                            <td>
+                                <a href="" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                                    Type
+
+                                    <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+                                    <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="" ng-click="sortType = 'entityName'; sortReverse = !sortReverse">
+                                    Entity name
+
+                                    <span ng-show="sortType == 'entityName' && !sortReverse" class="fa fa-caret-down"></span>
+                                    <span ng-show="sortType == 'entityName' && sortReverse" class="fa fa-caret-up"></span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="" ng-click="sortType = 'continent'; sortReverse = !sortReverse">
+                                    Continent
+
+                                    <span ng-show="sortType == 'continent' && !sortReverse" class="fa fa-caret-down"></span>
+                                    <span ng-show="sortType == 'continent' && sortReverse" class="fa fa-caret-up"></span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="" ng-click="sortType = 'subregion'; sortReverse = !sortReverse">
+                                    Subregion
+
+                                    <span ng-show="sortType == 'subregion' && !sortReverse" class="fa fa-caret-down"></span>
+                                    <span ng-show="sortType == 'subregion' && sortReverse" class="fa fa-caret-up"></span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="" ng-click="sortType = 'geometry'; sortReverse = !sortReverse">
+                                    Geometry
+
+                                    <span ng-show="sortType == 'geometry' && !sortReverse" class="fa fa-caret-down"></span>
+                                    <span ng-show="sortType == 'geometry' && sortReverse" class="fa fa-caret-up"></span>
+                                </a>
+                            </td>
+                            <td colspan="2"><button class = "btn btn-danger center-block" ng-click = "removeAllGeographicEntities()">Delete all</button></td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="entity in geographicalEntities | limitTo : 10 : (currentPage - 1)*pageSize| orderBy:sortType:sortReverse">
+                            <td>{{ entity.type }}</td>
+                            <td>{{ entity.entityName }}</td>
+                            <td>{{ entity.continent }}</td>
+                            <td>{{ entity.subregion }}</td>
+                            <td>{{ entity.geometry }}</td>
+                            <td><button class = "btn btn-danger center-block" ng-click = "removeGeographicEntity(entity._id, entity.entityName)"><span class = "ion ion-ios-trash"></span></button></td>
+                            <td><button class = "btn btn-info center-block" ng-click = "edit(entity.entityName, entity._id)"><span class = "ion ion-edit"></span></button></td>
+
+
+                        </tr>
+                        </tbody>
+                    </table>
+                    <center><uib-pagination total-items="geographicalEntities.length" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" num-pages="numPages"></uib-pagination></center>
+                </div>
+
+                <div ng-if="geographicalEntities.length ===0">
+                    <div class = "jumbotron">
+                        <h3 class = "text-center">No records in DB</h3>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </form>
-    <center><uib-pagination total-items="geographicalEntities.length" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" num-pages="numPages"></uib-pagination></center>
-<div ng-if="geographicalEntities.length !== 0">
-    <table class="table table-bordered table-striped table-hover table-responsive">
-        <thead>
-        <tr>
-            <td>
-                <a href="" ng-click="sortType = 'name'; sortReverse = !sortReverse">
-                    Type
-
-                    <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
-                    <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
-                </a>
-            </td>
-            <td>
-                <a href="" ng-click="sortType = 'entityName'; sortReverse = !sortReverse">
-                    Entity name
-
-                    <span ng-show="sortType == 'entityName' && !sortReverse" class="fa fa-caret-down"></span>
-                    <span ng-show="sortType == 'entityName' && sortReverse" class="fa fa-caret-up"></span>
-                </a>
-            </td>
-            <td>
-                <a href="" ng-click="sortType = 'continent'; sortReverse = !sortReverse">
-                    Continent
-
-                    <span ng-show="sortType == 'continent' && !sortReverse" class="fa fa-caret-down"></span>
-                    <span ng-show="sortType == 'continent' && sortReverse" class="fa fa-caret-up"></span>
-                </a>
-            </td>
-            <td>
-                <a href="" ng-click="sortType = 'subregion'; sortReverse = !sortReverse">
-                    Subregion
-
-                    <span ng-show="sortType == 'subregion' && !sortReverse" class="fa fa-caret-down"></span>
-                    <span ng-show="sortType == 'subregion' && sortReverse" class="fa fa-caret-up"></span>
-                </a>
-            </td>
-            <td>
-                <a href="" ng-click="sortType = 'geometry'; sortReverse = !sortReverse">
-                    Geometry
-
-                    <span ng-show="sortType == 'geometry' && !sortReverse" class="fa fa-caret-down"></span>
-                    <span ng-show="sortType == 'geometry' && sortReverse" class="fa fa-caret-up"></span>
-                </a>
-            </td>
-            <td colspan="2"><button class = "btn btn-danger center-block" ng-click = "removeAllGeographicEntities()">Delete all</button></td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="entity in geographicalEntities | limitTo : 10 : (currentPage - 1)*pageSize| orderBy:sortType:sortReverse">
-            <td>{{ entity.type }}</td>
-            <td>{{ entity.entityName }}</td>
-            <td>{{ entity.continent }}</td>
-            <td>{{ entity.subregion }}</td>
-            <td>{{ entity.geometry }}</td>
-            <td><button class = "btn btn-danger center-block" ng-click = "removeGeographicEntity(entity._id, entity.entityName)"><span class = "ion ion-ios-trash"></span></button></td>
-            <td><button class = "btn btn-info center-block" ng-click = "edit(entity.entityName, entity._id)"><span class = "ion ion-edit"></span></button></td>
-
-
-        </tr>
-        </tbody>
-    </table>
-    <center><uib-pagination total-items="geographicalEntities.length" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" num-pages="numPages"></uib-pagination></center>
-</div>
-
-    <div ng-if="geographicalEntities.length ===0">
-        <div class = "jumbotron">
-            <h3 class = "text-center">No records in DB</h3>
-        </div>
     </div>
-
 </div>
+
+
+
+
+
+
 
 
 

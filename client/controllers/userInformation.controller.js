@@ -6,9 +6,7 @@ applicationContext
 
 userInformationMainFunction.$inject = [
     '$scope',
-    '$location',
-    'AuthService',
-    'UserRetrievalService'
+    'AuthService'
 ];
 
 function userInformationMainFunction($scope, AuthService) {

@@ -29,26 +29,64 @@ applicationContext.config(function($routeProvider) {
                 restricted: false
             }
         })
-        .when('/main', {
-            templateUrl: 'partials/mainAppView.html',
-            controller: 'mainAppController',
+        .when('/dashboard', {
+            templateUrl: 'partials/views/dashboard.view.html',
+            controller: 'dashboardController',
             access: {
                 restricted: true
             }
         })
         .when('/userInformation', {
-            templateUrl: 'partials/userInformation.html',
+            templateUrl: 'partials/views/userInformation.view.html',
             controller: 'userInformationController',
             access: {
                 restricted: true
             }
         })
-        .when('/geographyData', {
+        .when('/geography', {
             templateUrl: 'partials/views/geographyData.view.html',
+            controller: 'geographyDataController',
             access: {
                 restricted: true
             }
         })
+
+        .when('/simulation', {
+            templateUrl: 'partials/views/simulation.view.html',
+            access: {
+                restricted: true
+            }
+        })
+
+        .when('/airspace', {
+            templateUrl: 'partials/views/airspace.view.html',
+            access: {
+                restricted: true
+            }
+        })
+
+        .when('/flightData', {
+            templateUrl: 'partials/views/flightData.view.html',
+            access: {
+                restricted: true
+            }
+        })
+
+        .when('/adaptation', {
+            templateUrl: 'partials/views/adaptationData.view.html',
+            access: {
+                restricted: true
+            }
+        })
+
+        .when('/weather', {
+            templateUrl: 'partials/views/weatherData.view.html',
+            access: {
+                restricted: true
+            }
+        })
+
+
 
         .when('/geography/edit/:_id', {
             templateUrl: 'partials/views/geographicalEntity.edit.view.html',
@@ -61,13 +99,6 @@ applicationContext.config(function($routeProvider) {
             redirectTo: '/'
         });
 });
-
-
-
-
-
-
-
 
 applicationContext.run(function($rootScope, $location, $route, AuthService) {
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
