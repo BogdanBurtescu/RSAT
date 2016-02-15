@@ -86,8 +86,6 @@ applicationContext.config(function($routeProvider) {
             }
         })
 
-
-
         .when('/geography/edit/:_id', {
             templateUrl: 'partials/views/geographicalEntity.edit.view.html',
             controller: 'geographicalEntityEdit',

@@ -14,6 +14,4 @@ function Dashboard($scope, SocketConnectionService,
                          GeographyService, UserService)
 {
 
-
-
 }

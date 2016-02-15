@@ -160,13 +160,7 @@ var controllerName = "geographyDataController";
             }
         }
 
-applicationContext
-    .directive('fileUploadComponent', function() {
-        return {
 
-            templateUrl: '../partials/views/components/uploadFiles.component.html'
-        };
-    })
 
 
 

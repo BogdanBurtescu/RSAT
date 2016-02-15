@@ -71,4 +71,11 @@ applicationContext
             controller: 'dashboardPanelController'
 
         };
-    });
+    })
+
+    .directive('fileUploadComponent', function() {
+        return {
+
+            templateUrl: '../partials/views/components/uploadFiles.component.html'
+        };
+    })
