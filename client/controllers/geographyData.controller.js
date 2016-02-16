@@ -150,13 +150,14 @@ var controllerName = "geographyDataController";
             function initGeographicalEntitiesTable()
             {
                 LoaderService.initiateLoader("Loading data...");
-                GeographyService.getGeographicEntity().then(
+                GeographyService.getGeographicEntities().then(
                     function(data)
                     {
                         $scope.geographicalEntities = data;
                         LoaderService.destroyLoader();
                     }
                 );
+
             }
         }
 

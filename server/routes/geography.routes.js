@@ -15,7 +15,7 @@ router.get('/numberOfGeographicEntities', function(req, res) {
     });
 });
 
-router.get('/geographicEntity', function(req, res) {
+router.get('/geographicEntities', function(req, res) {
     var listOfGeographicEntities = [];
     db.GEOGRAPHICAL_ENTITIES.find({}, function(err, documents){
         documents.forEach(function(document){
@@ -31,6 +31,15 @@ router.get('/geographicEntity', function(req, res) {
         });
         res.json(listOfGeographicEntities);
 
+    })
+
+});
+
+router.post('/geographicEntity', function(req, res) {
+    console.log(req.body.geographicEntityId);
+    db.GEOGRAPHICAL_ENTITIES.find({"_id": db.ObjectId(req.body.geographicEntityId)}, function(err, documents){
+        console.log(documents);
+        res.json(documents);
     })
 
 });

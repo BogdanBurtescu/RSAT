@@ -9,16 +9,18 @@ GeographyService.$inject = ['ServerCommunication'];
 function GeographyService(ServerCommunication) {
     // return available functions for use in controllers
     return ({
+        getGeographicEntities: getGeographicEntities,
         getGeographicEntity: getGeographicEntity,
         deleteGeographicEntity: deleteGeographicEntity,
         getNumberOfGeographicEntities: getNumberOfGeographicEntities,
         deleteAllGeographicEntities: deleteAllGeographicEntities
     });
 
-    function getGeographicEntity() {
-        var _requestResult =  ServerCommunication.initGetRequest('/geography/geographicEntity');
+    function getGeographicEntities() {
+        var _requestResult =  ServerCommunication.initGetRequest('/geography/geographicEntities');
         return _requestResult;
     }
+
 
     function getNumberOfGeographicEntities() {
         var _requestResult =  ServerCommunication.initGetRequest('/geography/numberOfGeographicEntities');
@@ -33,5 +35,10 @@ function GeographyService(ServerCommunication) {
 
     function deleteAllGeographicEntities(){
         ServerCommunication.initGetRequest('/geography/deleteAllGeographicEntities');
+    }
+
+    function getGeographicEntity(geographicEntityId)
+    {
+        ServerCommunication.initPostRequest('/geography/geographicEntity', {geographicEntityId: geographicEntityId})
     }
 }
