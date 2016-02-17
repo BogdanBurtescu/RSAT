@@ -25,24 +25,15 @@ function ServerCommunication($http, $q) {
         return promise;
     }
 
-    function initPostRequest(url, params)
+    function initPostRequest(url, params, callback)
     {
-        var deferred = $q.defer();
+        var serverRequest = {
+            method: 'POST',
+            url: url,
+            data: params
+        };
 
-        $http.post(url, params)
-            .success(function (data, status) {
-                console.log(data);
-                if (status === 200 && data.status) {
-                    deferred.resolve();
-                } else {
-                    deferred.reject();
-                }
-            })
-            .then(function(){
-                console.log("Am terminat post requestu")
-            });
-        return deferred.promise;
+        $http(serverRequest)
+            .then(callback);
     }
-
-
 }

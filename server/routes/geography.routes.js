@@ -35,9 +35,9 @@ router.get('/geographicEntities', function(req, res) {
 
 });
 
-router.post('/geographicEntity', function(req, res) {
+router.post('/geographicEntityEdit', function(req, res) {
     console.log(req.body.geographicEntityId);
-    db.GEOGRAPHICAL_ENTITIES.find({"_id": db.ObjectId(req.body.geographicEntityId)}, function(err, documents){
+    db.GEOGRAPHICAL_ENTITIES.find({"_id": db.ObjectId(req.body.featureId)}, function(err, documents){
         console.log(documents);
         res.json(documents);
     })
