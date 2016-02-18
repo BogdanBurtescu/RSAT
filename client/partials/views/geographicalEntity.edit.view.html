@@ -12,9 +12,16 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <div dashboard-component></div>
-                <h1>Edit panel for {{geographicalEntityId}}</h1>
+                <div class="panel panel-default">
 
-                <div class="row" style="height: 500px">
+                <div class="panel-heading">
+                    <h3><span style = "font-weight: lighter"class = 'label label-default'>{{geographicalEntityId}}</span>
+                        <span style = "font-weight: lighter" class = 'label label-success'>{{geographicalEntity.properties.ADMIN}}</h3>
+                    </span>
+
+                </div>
+                </div>
+                    <div class="row" style="height: 500px">
                     <div id = "map" style = "width: 100%; height: 100%;"></div>
                 </div>
             </div>

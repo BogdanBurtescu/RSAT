@@ -76,11 +76,10 @@
                             <td>{{ entity.type }}</td>
                             <td>{{ entity.entityName }}</td>
                             <td>{{ entity.continent }}</td>
-                            <td>{{ entity.subregion }}</td>
                             <td>{{ entity.geometry }}</td>
+                            <td>{{ entity.subregion }}</td>
                             <td><button class = "btn btn-danger center-block" ng-click = "removeGeographicEntity(entity._id, entity.entityName)"><span class = "ion ion-ios-trash"></span></button></td>
                             <td><button class = "btn btn-info center-block" ng-click = "edit(entity.entityName, entity._id)"><span class = "ion ion-edit"></span></button></td>
-
 
                         </tr>
                         </tbody>

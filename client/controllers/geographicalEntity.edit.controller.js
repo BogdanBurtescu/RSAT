@@ -9,12 +9,19 @@ geographicalEntityEdit.$inject =
         '$scope',
         '$routeParams',
         'DrawingService',
-        'd3'
+        'ServerCommunication'
     ];
 
-function geographicalEntityEdit($scope, $routeParams, DrawingService, d3)
+function geographicalEntityEdit($scope, $routeParams, DrawingService, ServerCommunication)
 {
     $scope.geographicalEntityId = $routeParams._id;
+
+    $scope.geographicalEntity = null;
+
+        ServerCommunication.initPostRequest('/geography/geographicEntityEdit', {featureId: $scope.geographicalEntityId}, function(response){
+            $scope.geographicalEntity = response.data[0];
+            console.log($scope.geographicalEntity);
+    });
 
     var divWidth = document.getElementById('map').clientWidth;
     var divHeight = document.getElementById('map').clientHeight;
