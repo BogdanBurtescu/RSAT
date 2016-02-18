@@ -14,8 +14,16 @@ function DrawingService(d3, $http, ServerCommunication) {
         createMercatorProjection: createMercatorProjection,
         initSvg: initSvg,
         createPath: createPath,
-        drawFeature: drawFeature
+        drawFeature: drawFeature,
+        initZoomAndPan: initZoomAndPan
     });
+
+
+    function initZoomAndPan(svg)
+    {
+
+    }
+
 
 
     function createPath(projection)
@@ -30,8 +38,13 @@ function DrawingService(d3, $http, ServerCommunication) {
         var svg = d3.select('#'.concat(divId)).append('svg')
             .attr('width', width)
             .attr('height', height)
-            .style("border", "1px solid silver");
+            .style("border", "1px solid silver")
+            .style('background-color', 'rgb(237, 237, 237)')
 
+            .call(d3.behavior.zoom().on("zoom", function () {
+                svg.attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
+            }))
+            .append("g");
         return svg;
     }
 
@@ -78,9 +91,21 @@ function DrawingService(d3, $http, ServerCommunication) {
             .data(featureCollection.features)
             .enter()
             .append("path")
+            .attr('class', 'feature')
             .attr("d", path)
-            .attr("fill", "rgb(224, 224, 224)")
+            .attr("fill", "rgb(255, 234, 45)")
             .style("stroke", "black")
-            .style("stroke-width", "0.3");
+            .style('fill-opacity', 0.8)
+            .style("stroke-width", 0.3)
+            .on('mousedown.log', function (d) {
+                console.log(d);
+            })
+            .on('mouseover', function() {
+                d3.select(this).style('fill-opacity', 1);
+            })
+            .on('mouseout', function() {
+                d3.select(this).style('fill-opacity', 0.8);
+            })
+
     }
 }

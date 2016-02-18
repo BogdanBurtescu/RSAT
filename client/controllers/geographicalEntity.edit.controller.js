@@ -8,10 +8,11 @@ geographicalEntityEdit.$inject =
     [
         '$scope',
         '$routeParams',
-        'DrawingService'
+        'DrawingService',
+        'd3'
     ];
 
-function geographicalEntityEdit($scope, $routeParams, DrawingService)
+function geographicalEntityEdit($scope, $routeParams, DrawingService, d3)
 {
     $scope.geographicalEntityId = $routeParams._id;
 
@@ -22,5 +23,7 @@ function geographicalEntityEdit($scope, $routeParams, DrawingService)
     var svg = DrawingService.initSvg('map', divWidth, divHeight);
     var path = DrawingService.createPath(projection);
     DrawingService.drawFeature(projection, path, svg, $scope.geographicalEntityId, '/geography/geographicEntityEdit');
+
+    DrawingService.initZoomAndPan(svg);
 
 }
