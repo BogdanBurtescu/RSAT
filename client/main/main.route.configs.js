@@ -1,4 +1,4 @@
-var applicationContext = angular.module('myApp', ['ngRoute', 'angularFileUpload', 'ui.bootstrap']);
+var applicationContext = angular.module('myApp', ['ngRoute', 'angularFileUpload', 'ui.bootstrap', 'ngMaterial']);
 
 applicationContext.config(function($routeProvider) {
     $routeProvider

@@ -19,8 +19,7 @@
                             <div class="input-group-addon">
                                 <i class="ion ion-ios-search-strong"></i>
                             </div>
-                            <input type="text" class="form-control" placeholder="Search for parameter..." ng-model="search">
-                        </div>
+                            <input type="text" class="form-control ng-pristine ng-valid" ng-model="searchKeyword">                        </div>
                     </div>
                 </form>
                 <center><uib-pagination total-items="geographicalEntities.length" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" num-pages="numPages"></uib-pagination></center>
@@ -72,14 +71,26 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="entity in geographicalEntities | limitTo : 10 : (currentPage - 1)*pageSize| orderBy:sortType:sortReverse">
+                        <tr ng-repeat="entity in geographicalEntities | limitTo : 10 : (currentPage - 1)*pageSize| orderBy:sortType:sortReverse | filter: searchKeyword">
                             <td>{{ entity.type }}</td>
                             <td>{{ entity.entityName }}</td>
                             <td>{{ entity.continent }}</td>
                             <td>{{ entity.geometry }}</td>
                             <td>{{ entity.subregion }}</td>
-                            <td><button class = "btn btn-danger center-block" ng-click = "removeGeographicEntity(entity._id, entity.entityName)"><span class = "ion ion-ios-trash"></span></button></td>
-                            <td><button class = "btn btn-info center-block" ng-click = "edit(entity.entityName, entity._id)"><span class = "ion ion-edit"></span></button></td>
+                            <td>
+                                <button class = "btn btn-danger center-block" ng-click = "removeGeographicEntity(entity._id, entity.entityName)"><span class = "ion ion-ios-trash"></span>
+                                    <md-tooltip md-direction="left">
+                                        Delete record
+                                    </md-tooltip>
+                                </button>
+                            </td>
+                            <td>
+                                <button class = "btn btn-info center-block" ng-click = "edit(entity.entityName, entity._id)"><span class = "ion ion-edit"></span>
+                                    <md-tooltip md-direction="right">
+                                        Edit record
+                                    </md-tooltip>
+                                </button>
+                            </td>
 
                         </tr>
                         </tbody>
